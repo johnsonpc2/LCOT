@@ -1,0 +1,8 @@
+const jsPsych = initJsPsych({
+  on_finish: function() {
+    // Pavlovia-specific data saving
+    jsPsych.data.displayData();
+  }
+});
+
+
