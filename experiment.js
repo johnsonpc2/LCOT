@@ -1,3 +1,13 @@
+const pavlovia_init = {
+  type: jsPsychPavlovia,
+  command: "init"
+};
+
+const pavlovia_finish = {
+  type: jsPsychPavlovia,
+  command: "finish"
+}
+
 const jsPsych = initJsPsych({
   on_finish: function() {
     // Pavlovia-specific data saving
@@ -159,6 +169,8 @@ preference_trial = {
 
 // ##### TIMELINE CODE #####
 const timeline = []; // Creates empty array to fill with procedure
+
+timeline.push(pavlovia_init)
 
 // This initialization screen forces participants to use fullscreen
 // mode to limit distractions outside the task
@@ -767,6 +779,8 @@ timeline.push({
     phase: 'debriefing'
   }
 });
+
+timeline.push(pavlovia_finish)
 
 // Runs the timeline we created with all the code we've put on it
 jsPsych.run(timeline);
