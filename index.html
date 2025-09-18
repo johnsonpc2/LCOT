@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Music Memory Experiment</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Pavlovia core libraries -->
+    <script src="lib/util-2020.2.js"></script>
+    <script src="lib/core-2020.2.js"></script>
+    
+    <!-- jsPsych libraries -->
+    <script src="lib/vendors/jspsych-6.3.1/jspsych.js"></script>
+    <script src="lib/vendors/jspsych-6.3.1/plugins/jspsych-html-keyboard-response.js"></script>
+    <script src="lib/vendors/jspsych-6.3.1/plugins/jspsych-audio-keyboard-response.js"></script>
+    <script src="lib/vendors/jspsych-6.3.1/plugins/jspsych-audio-button-response.js"></script>
+    <script src="lib/vendors/jspsych-6.3.1/plugins/jspsych-audio-slider-response.js"></script>
+    <script src="lib/vendors/jspsych-6.3.1/plugins/jspsych-instructions.js"></script>
+    <script src="lib/vendors/jspsych-6.3.1/plugins/jspsych-fullscreen.js"></script>
+    <script src="lib/vendors/jspsych-6.3.1/plugins/jspsych-preload.js"></script>
+    <script src="lib/vendors/jspsych-6.3.1/plugins/jspsych-survey-text.js"></script>
+    <script src="lib/vendors/jspsych-6.3.1/plugins/jspsych-survey-multi-choice.js"></script>
+    <script src="lib/vendors/jspsych-6.3.1/plugins/jspsych-survey-multi-select.js"></script>
+    
+    <!-- CSS -->
+    <link href="lib/vendors/jspsych-6.3.1/css/jspsych.css" rel="stylesheet" type="text/css">
+    
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        
+        #jspsych-target {
+            width: 100%;
+            height: 100vh;
+        }
+        
+        .loading-message {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="jspsych-target">
+        <div class="loading-message">
+            Loading experiment... Please wait.
+        </div>
+    </div>
+    
+    <!-- Your experiment script -->
+    <script src="experiment.js"></script>
+</body>
+</html>
