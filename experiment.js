@@ -38,7 +38,7 @@ const audio_files = [
   'audio/melody18_Kalimba_loud.mp3',
   'audio/melody19_Kalimba_loud.mp3'];
 
-const sample_tone_file = ['melody12_Kalimba_trial_tone.mp3'];
+const sample_tone_file = ['audio/melody21_Kalimba_loud.mp3'];
 
 const audio_prefix = [// Isolate the beginning of the audio files
   'melody01_Kalimba', 'melody02_Kalimba', 'melody03_Kalimba',
