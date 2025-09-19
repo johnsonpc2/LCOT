@@ -162,8 +162,7 @@ preference_trial = {
   require_movement: true,
   data: {
     phase: 'preference_test_trial',
-    component_id: jsPsych.timelineVariable('component_id'),
-    distraction: distraction_data
+    component_id: jsPsych.timelineVariable('component_id')
   }};
 
 
@@ -616,8 +615,7 @@ timeline.push({
       prompt: "<p style=font-size:2vw>Was there any point you believe a technical error occurred during the study (i.e., a sound didn't play, something didn't show up, etc.)?</p>", name: "technicalIssues", required: false
     }],
   data: {
-    phase: 'individual_diffs_text1',
-    distraction: distraction_data
+    phase: 'individual_diffs_text1'
   }});
 
 // Individual differences questionnaire multiple choice
@@ -689,8 +687,7 @@ timeline.push({
       }, vertical: true
     }],
   data: {
-    phase: 'individual_diffs_multipleChoice',
-    distraction: distraction_data
+    phase: 'individual_diffs_multipleChoice'
   }});
 
 // Demographics survey: a block for entering age, gender, and race
@@ -702,8 +699,7 @@ var demographics_age = {
     required: false
   }],
   data: {
-    phase: 'demographics_survey',
-    distraction: distraction_data
+    phase: 'demographics_survey'
   }};
 
 var demographics_gender = {
@@ -723,8 +719,7 @@ var demographics_gender = {
     vertical: true
   }],
   data: {
-    phase: 'demographics_gender',
-    distraction: distraction_data
+    phase: 'demographics_gender'
   }};
 
 var demographics_gender_other = {
@@ -736,8 +731,7 @@ var demographics_gender_other = {
     vertical: true
   }],
   data: {
-    phase: 'demographics_gender_other',
-    distraction: distraction_data
+    phase: 'demographics_gender_other'
   }};
 
 var demographics_race = {
@@ -756,8 +750,7 @@ var demographics_race = {
     vertical: true
   }],
   data: {
-    phase: 'demographics_race',
-    distraction: distraction_data
+    phase: 'demographics_race'
   }};
 
 timeline.push(demographics_age);
