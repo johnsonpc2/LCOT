@@ -582,6 +582,21 @@ timeline.push({
     {
       prompt: "<p style=font-size:2vw>Was there any point you believe a technical error occurred during the study (i.e., a sound didn't play, something didn't show up, etc.)?</p>", name: "technicalIssues", required: false
     }],
+    on_finish: function(data) {
+    // Parse the JSON response
+    const responses = JSON.parse(data.response);
+    
+    // Add each response as individual columns
+    data.DecisionStrategies = responses.DecisionStrategies;
+    data.singOrPlay = responses.singOrPlay;
+    data.InstrumentType = responses.InstrumentType;
+    data.surveyDevice = responses.surveyDevice;
+    data.audioDevice = responses.audioDevice;
+    data.technicalIssues = responses.technicalIssues;
+    
+    // Optional: remove the original JSON response to clean up data
+    delete data.response;
+  },
   data: {
     phase: 'individual_diffs_text1'
   }});
@@ -654,6 +669,21 @@ timeline.push({
         phase: 'hearingAbility'
       }, vertical: true
     }],
+    on_finish: function(data) {
+    // Parse the JSON response
+    const responses = JSON.parse(data.response);
+    
+    // Add each response as individual columns
+    data.musicalIdentity = responses.musicalIdentity;
+    data.musicalExperience = responses.musicalExperience;
+    data.InstrumentType = responses.InstrumentType;
+    data.surveyDevice = responses.surveyDevice;
+    data.audioDevice = responses.audioDevice;
+    data.technicalIssues = responses.technicalIssues;
+    
+    // Optional: remove the original JSON response to clean up data
+    delete data.response;
+  },
   data: {
     phase: 'individual_diffs_multipleChoice'
   }});
@@ -668,7 +698,10 @@ var demographics_age = {
   }],
   data: {
     phase: 'demographics_survey'
-  }};
+  },
+  on_finish: function(data){
+                data.response = JSON.stringify(data.response.age);
+            }};
 
 var demographics_gender = {
   type: jsPsychSurveyMultiSelect,
