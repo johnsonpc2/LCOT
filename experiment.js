@@ -37,12 +37,12 @@ const audio_files = [
 const sample_tone_file = ['audio/melody21_Kalimba_loud.mp3'];
 
 const audio_prefix = [// Isolate the beginning of the audio files
-  'melody01_Kalimba', 'melody02_Kalimba', 'melody03_Kalimba',
-  'melody04_Kalimba', 'melody05_Kalimba', 'melody06_Kalimba',
-  'melody07_Kalimba', 'melody08_Kalimba', 'melody09_Kalimba',
-  'melody10_Kalimba', 'melody11_Kalimba', 'melody13_Kalimba',
-  'melody14_Kalimba', 'melody15_Kalimba', 'melody17_Kalimba',
-  'melody19_Kalimba'
+  'audio/melody01_Kalimba', 'audio/melody02_Kalimba', 'audio/melody03_Kalimba',
+  'audio/melody04_Kalimba', 'audio/melody05_Kalimba', 'audio/melody06_Kalimba',
+  'audio/melody07_Kalimba', 'audio/melody08_Kalimba', 'audio/melody09_Kalimba',
+  'audio/melody10_Kalimba', 'audio/melody11_Kalimba', 'audio/melody13_Kalimba',
+  'audio/melody14_Kalimba', 'audio/melody15_Kalimba', 'audio/melody17_Kalimba',
+  'audio/melody19_Kalimba'
 ];
 
 // The "role" of each fragment is defined by its index in the "assigned_files" list.
