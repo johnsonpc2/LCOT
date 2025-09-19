@@ -179,7 +179,7 @@ timeline.push({
 timeline.push({
   timeline: [{
     type: jsPsychAudioButtonResponse,
-    stimulus: 'melody12_Kalimba_trial_tone.mp3',
+    stimulus: sample_tone_file,
     choices: ['Play again', 'Continue'], // Option 1 and 2
     prompt: '<p style=font-size:2vw>A soft and loud sample will play. Adjust the volume so both samples can be heard comfortably. Click the "Play Again" button to repeat the samples. Once comfortable, click "Continue" to begin the practice.</p>'
   }],
