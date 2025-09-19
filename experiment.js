@@ -6,13 +6,9 @@ const pavlovia_init = {
 const pavlovia_finish = {
   type: jsPsychPavlovia,
   command: "finish"
-}
+};
 
 const jsPsych = initJsPsych({
-  on_finish: function() {
-    // Pavlovia-specific data saving
-    jsPsych.data.displayData();
-  }
 });
 
 // ##### DEFINE THE CONSTANTS AND VARIABLES USED LATER #####
