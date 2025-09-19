@@ -36,26 +36,7 @@ const audio_files = [
   'melody16_Kalimba_loud.mp3',
   'melody17_Kalimba_loud.mp3',
   'melody18_Kalimba_loud.mp3',
-  'melody19_Kalimba_loud.mp3',
-  'melody01_Kalimba_soft.mp3',
-  'melody02_Kalimba_soft.mp3',
-  'melody03_Kalimba_soft.mp3',
-  'melody04_Kalimba_soft.mp3',
-  'melody05_Kalimba_soft.mp3',
-  'melody06_Kalimba_soft.mp3',
-  'melody07_Kalimba_soft.mp3',
-  'melody08_Kalimba_soft.mp3',
-  'melody09_Kalimba_soft.mp3',
-  'melody10_Kalimba_soft.mp3',
-  'melody11_Kalimba_soft.mp3',
-  'melody12_Kalimba_soft.mp3',
-  'melody13_Kalimba_soft.mp3',
-  'melody14_Kalimba_soft.mp3',
-  'melody15_Kalimba_soft.mp3',
-  'melody16_Kalimba_soft.mp3',
-  'melody17_Kalimba_soft.mp3',
-  'melody18_Kalimba_soft.mp3',
-  'melody19_Kalimba_soft.mp3'];
+  'melody19_Kalimba_loud.mp3'];
 
 const sample_tone_file = ['melody12_Kalimba_trial_tone.mp3'];
 
@@ -132,14 +113,6 @@ const num_blocks = 4;
 
 // Create an empty list to hold the entire exposure stream.
 var exposure_stream = [];
-
-// Set the initial volume of the melodies randomly
-if (Math.random() < 0.5) {
-  var volume_level = 'loud';
-} else {
-  var volume_level = 'soft';
-}
-
 
 // ##### SLIDE DEFINITIONS #####
 // Trial of the preference task
@@ -323,7 +296,6 @@ for (var block_index = 0; block_index < num_blocks; block_index++) {
       exposure_block.push({
         component_id: block_units[unit_index][component_index],
         stimulus: assigned_files[block_units[unit_index][component_index]] + '_loud.mp3',
-        volume: "loud",
         block: block_index
       });
     }
