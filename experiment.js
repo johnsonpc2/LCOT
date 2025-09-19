@@ -18,25 +18,25 @@ const jsPsych = initJsPsych({
 // ##### DEFINE THE CONSTANTS AND VARIABLES USED LATER #####
 // Store audio files so we can use them later
 const audio_files = [
-  'melody01_Kalimba_loud.mp3',
-  'melody02_Kalimba_loud.mp3',
-  'melody03_Kalimba_loud.mp3',
-  'melody04_Kalimba_loud.mp3',
-  'melody05_Kalimba_loud.mp3',
-  'melody06_Kalimba_loud.mp3',
-  'melody07_Kalimba_loud.mp3',
-  'melody08_Kalimba_loud.mp3',
-  'melody09_Kalimba_loud.mp3',
-  'melody10_Kalimba_loud.mp3',
-  'melody11_Kalimba_loud.mp3',
-  'melody12_Kalimba_loud.mp3',
-  'melody13_Kalimba_loud.mp3',
-  'melody14_Kalimba_loud.mp3',
-  'melody15_Kalimba_loud.mp3',
-  'melody16_Kalimba_loud.mp3',
-  'melody17_Kalimba_loud.mp3',
-  'melody18_Kalimba_loud.mp3',
-  'melody19_Kalimba_loud.mp3'];
+  'audio/melody01_Kalimba_loud.mp3',
+  'audio/melody02_Kalimba_loud.mp3',
+  'audio/melody03_Kalimba_loud.mp3',
+  'audio/melody04_Kalimba_loud.mp3',
+  'audio/melody05_Kalimba_loud.mp3',
+  'audio/melody06_Kalimba_loud.mp3',
+  'audio/melody07_Kalimba_loud.mp3',
+  'audio/melody08_Kalimba_loud.mp3',
+  'audio/melody09_Kalimba_loud.mp3',
+  'audio/melody10_Kalimba_loud.mp3',
+  'audio/melody11_Kalimba_loud.mp3',
+  'audio/melody12_Kalimba_loud.mp3',
+  'audio/melody13_Kalimba_loud.mp3',
+  'audio/melody14_Kalimba_loud.mp3',
+  'audio/melody15_Kalimba_loud.mp3',
+  'audio/melody16_Kalimba_loud.mp3',
+  'audio/melody17_Kalimba_loud.mp3',
+  'audio/melody18_Kalimba_loud.mp3',
+  'audio/melody19_Kalimba_loud.mp3'];
 
 const sample_tone_file = ['melody12_Kalimba_trial_tone.mp3'];
 
