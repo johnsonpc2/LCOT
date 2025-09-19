@@ -235,17 +235,17 @@ timeline.push({
   // The code below defines the stimuli to be used on each of the trials of practice//
   // There will be 3 trials as defined in the timeline below
   timeline: [{
-    stimulus: 'melody18_Kalimba_soft.mp3',
+    stimulus: 'audio/melody15_Kalimba_loud.mp3',
     data: {
       is_switch: false
     }},
     {
-      stimulus: 'melody16_Kalimba_loud.mp3',
+      stimulus: 'audio/melody16_Kalimba_loud.mp3',
       data: {
         is_switch: true
       }},
     {
-      stimulus: 'melody18_Kalimba_soft.mp3',
+      stimulus: 'audio/melody17_Kalimba_loud.mp3',
       data: {
         is_switch: true
       }}]
