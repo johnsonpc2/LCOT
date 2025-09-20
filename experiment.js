@@ -11,6 +11,17 @@ const pavlovia_finish = {
 const jsPsych = initJsPsych({
 });
 
+var css = `
+<style>
+.custom-button-style .jspsych-audio-slider-response-button {
+    display: block !important;
+    margin: 20px auto 0 auto !important;
+    text-align: center !important;
+}
+</style>
+`;
+document.head.insertAdjacentHTML('beforeend', css);
+
 // ##### DEFINE THE CONSTANTS AND VARIABLES USED LATER #####
 // Store audio files so we can use them later
 const audio_files = [
@@ -404,14 +415,6 @@ for (var block_index = 0; block_index < num_blocks; block_index++) {
         response_allowed_while_playing: false,
         post_trial_gap: 500,
         require_movement: true,
-        on_load: function() {
-        var button = document.querySelector('.jspsych-audio-slider-response-button');
-        if (button) {
-            button.style.display = 'block';
-            button.style.margin = '20px auto 0 auto';
-            button.style.textAlign = 'center';
-            }
-          },
         data: {
           block: block_index + 1,
           phase: 'memory_trial_pair_2',
@@ -492,14 +495,6 @@ for (var block_index = 0; block_index < num_blocks; block_index++) {
         response_allowed_while_playing: false,
         post_trial_gap: 500,
         require_movement: true,
-        on_load: function() {
-        var button = document.querySelector('.jspsych-audio-slider-response-button');
-        if (button) {
-            button.style.display = 'block';
-            button.style.margin = '20px auto 0 auto';
-            button.style.textAlign = 'center';
-            }
-          },
         data: {
           block: block_index + 1,
           phase: 'memory_trial_pair_2',
