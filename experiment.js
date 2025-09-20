@@ -119,9 +119,9 @@ preference_trial = {
   type: jsPsychAudioSliderResponse,
   stimulus: jsPsych.timelineVariable('preference_stim'),
   labels: [
-    "Did not like at all",
-    "Liked very much"],
-  prompt: '<p style=font-size:2vw>Use the slider to indicate how much you like this melody.</p>',
+    "Not at all",
+    "Very much"],
+  prompt: '<p style=font-size:2vw>How much did you like this melody?</p>',
   slider_width: 480,
   min: 0,
   max: 100,
@@ -303,7 +303,7 @@ for (var block_index = 0; block_index < num_blocks; block_index++) {
   timeline.push({
     type: jsPsychInstructions,
     pages: [
-      '<p style=font-size:2vw>We will now ask you about the music you just heard. These sequences <b>might</b> be in the same order you heard previously. Please rate your confidence whether the sequences we play now <b>match the SPECIFIC order</b> you heard earlier in the study. Following these questions, you will begin another listening task. Click "Continue" to start.</p>'
+      '<p style=font-size:2vw>You are about the hear the melodies you just heard again. Some melodies <b>might</b> be in the same order you heard previously, but some may be different. Please rate your confidence regarding whether the sequences we play now <b>match the SPECIFIC order</b> you heard earlier. Following these questions, you will listen to more melodies. Click "Continue" to start.</p>'
     ],
     button_label_next: 'Continue',
     button_label_previous: 'Go back',
@@ -362,7 +362,7 @@ for (var block_index = 0; block_index < num_blocks; block_index++) {
         response_allowed_while_playing: false,
         response_ends_trial: false,
         trial_ends_after_audio: true,
-        post_trial_gap: 1000,
+        post_trial_gap: 500,
         prompt: '<p style=font-size:2vw>First pair playing...</p>',
         data: {
           block: block_index + 1,
@@ -402,7 +402,7 @@ for (var block_index = 0; block_index < num_blocks; block_index++) {
         max: 100,
         slider_start: 50,
         response_allowed_while_playing: false,
-        post_trial_gap: 1000,
+        post_trial_gap: 500,
         require_movement: true,
         on_load: function() {
         var button = document.querySelector('.jspsych-audio-slider-response-button');
@@ -450,7 +450,7 @@ for (var block_index = 0; block_index < num_blocks; block_index++) {
         response_allowed_while_playing: false,
         response_ends_trial: false,
         trial_ends_after_audio: true,
-        post_trial_gap: 1000,
+        post_trial_gap: 500,
         prompt: '<p style=font-size:2vw>First pair playing...</p>',
         data: {
           block: block_index + 1,
@@ -490,8 +490,16 @@ for (var block_index = 0; block_index < num_blocks; block_index++) {
         max: 100,
         slider_start: 50,
         response_allowed_while_playing: false,
-        post_trial_gap: 1000,
+        post_trial_gap: 500,
         require_movement: true,
+        on_load: function() {
+        var button = document.querySelector('.jspsych-audio-slider-response-button');
+        if (button) {
+            button.style.display = 'block';
+            button.style.margin = '20px auto 0 auto';
+            button.style.textAlign = 'center';
+            }
+          },
         data: {
           block: block_index + 1,
           phase: 'memory_trial_pair_2',
@@ -523,7 +531,7 @@ timeline.push({
 // Preference Instructions
 timeline.push({
   type: jsPsychInstructions,
-  pages: ['<p style=font-size:2vw>Please state your preference for the music you have heard. Rate how much you liked each of the following on a scale from "Did not like at all" to "Liked very much". Click "Continue" to begin.</p>'],
+  pages: ['<p style=font-size:2vw>Please state your preference for the melodies you have heard. Rate how much you liked each of the following on a scale from "Did not like at all" to "Liked very much". Click "Continue" to begin.</p>'],
   button_label_next: 'Continue',
   button_label_previous: 'Go back',
   show_clickable_nav: true,
