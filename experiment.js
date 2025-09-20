@@ -404,6 +404,14 @@ for (var block_index = 0; block_index < num_blocks; block_index++) {
         response_allowed_while_playing: false,
         post_trial_gap: 1000,
         require_movement: true,
+        on_load: function() {
+        var button = document.querySelector('.jspsych-audio-slider-response-button');
+        if (button) {
+            button.style.display = 'block';
+            button.style.margin = '20px auto 0 auto';
+            button.style.textAlign = 'center';
+            }
+          },
         data: {
           block: block_index + 1,
           phase: 'memory_trial_pair_2',
