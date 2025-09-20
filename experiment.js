@@ -105,7 +105,7 @@ task_stimuli = [{
   listening: 5 sec/melody, 2 melodies/pair, 24 pair presentations;
   test: 5sec/melody, 2 melodies/pair, 2 pairs/test trial, 10 test trials, + 4 sec/response, 10 responses,
   4 blocks puts us at 32 minutes of listening*/
-const num_blocks = 4;
+const num_blocks = 1;
 
 // Create an empty list to hold the entire exposure stream.
 var exposure_stream = [];
@@ -244,7 +244,7 @@ for (var block_index = 0; block_index < num_blocks; block_index++) {
     }
   }
 
-  timeline.push(exposure_block);
+  timeline.push(exposure_stream);
 
   console.log(exposure_block);
 
