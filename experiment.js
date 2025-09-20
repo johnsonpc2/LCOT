@@ -237,7 +237,6 @@ for (var block_index = 0; block_index < num_blocks; block_index++) {
       exposure_block.push({
         component_id: block_units[unit_index][component_index],
         stimulus: assigned_files[block_units[unit_index][component_index]] + '_loud.mp3',
-        post_trial_gap: 250,
         block: block_index
       });
     }
@@ -328,6 +327,7 @@ for (var block_index = 0; block_index < num_blocks; block_index++) {
         response_ends_trial: false,
         trial_ends_after_audio: true,
         prompt: '<p style=font-size:1.5vw>Second pair playing...</p>',
+        post_trial_gap: 250,
         data: {
           block: block_index + 1,
           phase: 'memory_trial_pair_2',
@@ -371,6 +371,7 @@ for (var block_index = 0; block_index < num_blocks; block_index++) {
         response_ends_trial: false,
         trial_ends_after_audio: true,
         prompt: '<p style=font-size:1.5vw>First pair playing...</p>',
+        post_trial_gap: 250,
         data: {
           block: block_index + 1,
           phase: 'memory_trial_pair_1',
@@ -408,6 +409,7 @@ for (var block_index = 0; block_index < num_blocks; block_index++) {
         response_ends_trial: false,
         trial_ends_after_audio: true,
         prompt: '<p style=font-size:1.5vw>Second pair playing...</p>',
+        post_trial_gap: 250,
         data: {
           block: block_index + 1,
           phase: 'memory_trial_pair_2',
