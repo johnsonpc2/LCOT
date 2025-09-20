@@ -121,7 +121,7 @@ preference_trial = {
   labels: [
     "Not at all",
     "Very much"],
-  prompt: '<p style=font-size:2vw>How much did you like this melody?</p>',
+  prompt: '<p style=font-size:1.5vw>How much did you like this melody?</p>',
   slider_width: 480,
   min: 0,
   max: 100,
@@ -145,7 +145,7 @@ timeline.push(pavlovia_init)
 timeline.push({
   type: jsPsychFullscreen,
   fullscreen_mode: true,
-  message: '<p style=font-size:2vw>By clicking the "Continue" button below, the experiment will enter fullscreen mode. Please remain in fullscreen mode for the duration of the study. Click the "Continue" button to begin.</p>',
+  message: '<p style=font-size:1.5vw>By clicking the "Continue" button below, the experiment will enter fullscreen mode. Please remain in fullscreen mode for the duration of the study. Click the "Continue" button to begin.</p>',
   data: {
     phase: 'fullscreen_agreement'
   }
@@ -156,8 +156,8 @@ timeline.push({
   type: jsPsychInstructions,
   pages: [// Each new item in the list shows up on a new page
     '<p style=font-size:4vw>Welcome to the study!</p>',
-    '<p style=font-size:2vw>In this study you will complete two tasks: First, you will complete a series of short listening tasks and answer questions about what you hear. You will have the chance to practice one of these listening tasks before starting this portion of the study. After completing the listening tasks, you will complete a questionnaire about yourself and your hearing. The study takes about 40-45 minutes to complete. All responses will remain anonymous.</p>',
-    '<p style=font-size:2vw>This study requires you to listen to audio played from your browser and make responses with your keyboard. Please complete the study on a device with a <b>physical</b> keyboard, such as a laptop or desktop computer. Please also ensure you are in a quiet environment. If possible, use headphones or earbuds to complete the task. On the next page you will hear sample sounds like those you will hear later in the study. Lower your volume now, <b>BEFORE</b> continuing, and gradually increase your volume to a comfortable level while the sample audio plays. A quiet audio sample will play, followed by a loud sample. When you are ready, press the "Continue" button to begin.</p>'],
+    '<p style=font-size:1.5vw>In this study you will complete two tasks: First, you will complete a series of short listening tasks and answer questions about what you hear. You will have the chance to practice one of these listening tasks before starting this portion of the study. After completing the listening tasks, you will complete a questionnaire about yourself and your hearing. The study takes about 40-45 minutes to complete. All responses will remain anonymous.</p>',
+    '<p style=font-size:1.5vw>This study requires you to listen to audio played from your browser and make responses with your keyboard. Please complete the study on a device with a <b>physical</b> keyboard, such as a laptop or desktop computer. Please also ensure you are in a quiet environment. If possible, use headphones or earbuds to complete the task. On the next page you will hear sample sounds like those you will hear later in the study. Lower your volume now, <b>BEFORE</b> continuing, and gradually increase your volume to a comfortable level while the sample audio plays. A quiet audio sample will play, followed by a loud sample. When you are ready, press the "Continue" button to begin.</p>'],
   button_label_next: 'Continue',
   button_label_previous: 'Go back',
   show_clickable_nav: true,
@@ -181,7 +181,7 @@ timeline.push({
     type: jsPsychAudioButtonResponse,
     stimulus: sample_tone_file,
     choices: ['Play again', 'Continue'], // Option 1 and 2
-    prompt: '<p style=font-size:2vw>A soft and loud sample will play. Adjust the volume so both samples can be heard comfortably. Click the "Play Again" button to repeat the samples. Once comfortable, click "Continue" to begin the practice.</p>'
+    prompt: '<p style=font-size:1.5vw>A soft and loud sample will play. Adjust the volume so both samples can be heard comfortably. Click the "Play Again" button to repeat the samples. Once comfortable, click "Continue" to begin the practice.</p>'
   }],
   response_allowed_while_playing: false,
   loop_function: function(data) {
@@ -196,60 +196,7 @@ timeline.push({
   }
 });
 
-// Intermediate slide before the start of the practice phase
-timeline.push({
-  type: jsPsychHtmlKeyboardResponse,
-  stimulus: '<p style=font-size:4vw>PRACTICE</p>',
-  choices: 'NO_KEYS',
-  trial_duration: 2000,
-  response_ends_trial: false,
-  data: {
-    phase: 'intermediate_slide_practice'
-  }
-});
-
-// Practice trial instructions
-timeline.push({
-  type: jsPsychInstructions,
-  pages: [
-    '<p style=font-size:2vw>Please press the "ENTER" key on your keyboard immediately anytime you notice the volume of the sound changes. <b>The screen will not change when you press the "ENTER" key</b>; however, your responses <b>will</b> be recorded. If you think you hear a volume change but are unsure, hit the "ENTER" key anyway. Please press the "Continue" button when you are ready to begin practicing.</p>'],
-  button_label_next: 'Continue',
-  show_clickable_nav: true,
-  data: {
-    phase: 'practice_instructions'
-  }
-});
-
-// Practice trial for attention check mechanism. Subjects should press ENTER on trials where "follows_volume_change" = true; timeline index 6
-timeline.push({
-  type: jsPsychAudioKeyboardResponse,
-  prompt: '<p style=font-size:2vw>Press the "ENTER" key when you hear a change in volume. Your response will be recorded but the screen will <b>NOT</b> change when you press the "ENTER" key.</p>',
-  choices: ["Enter"],
-  response_allowed_while_playing: true,
-  response_ends_trial: false,
-  trial_ends_after_audio: true,
-  data: {
-    phase: 'practice_trial'
-  },
-  // The code above sets the general layout for the practice slides.
-  // The code below defines the stimuli to be used on each of the trials of practice//
-  // There will be 3 trials as defined in the timeline below
-  timeline: [{
-    stimulus: 'audio/melody15_Kalimba_loud.mp3',
-    data: {
-      is_switch: false
-    }},
-    {
-      stimulus: 'audio/melody16_Kalimba_loud.mp3',
-      data: {
-        is_switch: true
-      }},
-    {
-      stimulus: 'audio/melody17_Kalimba_loud.mp3',
-      data: {
-        is_switch: true
-      }}]
-});
+// YOU DELETED THE INTERMEDIATE SLIDE BEFORE THE PRACTICE, THE PRACTICE INSTRUCTIONS, AND THE PRACTICE ITSELF. THIS IS WHERE IT WENT.
 
 // Intermediate slide before the start of the exposure phase
 timeline.push({
@@ -267,7 +214,7 @@ timeline.push({
 timeline.push({
   type: jsPsychInstructions,
   pages: [
-    '<p style=font-size:2vw>Like the practice you just completed, press the "ENTER" key immediately anytime you notice the volume of the music changes. Again, the screen <b>will not change</b> when you press the "ENTER" key, but your responses <b>will</b> be recorded. This portion of the study will take just over 15 minutes. Please press the "Continue" button when you are ready to begin.</p>'],
+    '<p style=font-size:1.5vw>Like the practice you just completed, press the "ENTER" key immediately anytime you notice the volume of the music changes. Again, the screen <b>will not change</b> when you press the "ENTER" key, but your responses <b>will</b> be recorded. This portion of the study will take just over 15 minutes. Please press the "Continue" button when you are ready to begin.</p>'],
   button_label_next: 'Continue',
   button_label_previous: 'Go back',
   show_clickable_nav: true,
@@ -303,7 +250,7 @@ for (var block_index = 0; block_index < num_blocks; block_index++) {
   timeline.push({
     type: jsPsychInstructions,
     pages: [
-      '<p style=font-size:2vw>You are about the hear the melodies you just heard again. Some melodies <b>might</b> be in the same order you heard previously, but some may be different. Please rate your confidence regarding whether the sequences we play now <b>match the SPECIFIC order</b> you heard earlier. Following these questions, you will listen to more melodies. Click "Continue" to start.</p>'
+      '<p style=font-size:1.5vw>You are about the hear the melodies you just heard again. Some melodies <b>might</b> be in the same order you heard previously, but some may be different. Please rate your confidence regarding whether the sequences we play now <b>match the SPECIFIC order</b> you heard earlier. Following these questions, you will listen to more melodies. Click "Continue" to start.</p>'
     ],
     button_label_next: 'Continue',
     button_label_previous: 'Go back',
@@ -344,7 +291,7 @@ for (var block_index = 0; block_index < num_blocks; block_index++) {
         response_allowed_while_playing: false,
         response_ends_trial: false,
         trial_ends_after_audio: true,
-        prompt: '<p style=font-size:2vw>First pair playing...</p>',
+        prompt: '<p style=font-size:1.5vw>First pair playing...</p>',
         data: {
           block: block_index + 1,
           phase: 'memory_trial_pair_1',
@@ -363,7 +310,7 @@ for (var block_index = 0; block_index < num_blocks; block_index++) {
         response_ends_trial: false,
         trial_ends_after_audio: true,
         post_trial_gap: 500,
-        prompt: '<p style=font-size:2vw>First pair playing...</p>',
+        prompt: '<p style=font-size:1.5vw>First pair playing...</p>',
         data: {
           block: block_index + 1,
           phase: 'memory_trial_pair_1',
@@ -381,7 +328,7 @@ for (var block_index = 0; block_index < num_blocks; block_index++) {
         response_allowed_while_playing: false,
         response_ends_trial: false,
         trial_ends_after_audio: true,
-        prompt: '<p style=font-size:2vw>Second pair playing...</p>',
+        prompt: '<p style=font-size:1.5vw>Second pair playing...</p>',
         data: {
           block: block_index + 1,
           phase: 'memory_trial_pair_2',
@@ -424,7 +371,7 @@ for (var block_index = 0; block_index < num_blocks; block_index++) {
         response_allowed_while_playing: false,
         response_ends_trial: false,
         trial_ends_after_audio: true,
-        prompt: '<p style=font-size:2vw>First pair playing...</p>',
+        prompt: '<p style=font-size:1.5vw>First pair playing...</p>',
         data: {
           block: block_index + 1,
           phase: 'memory_trial_pair_1',
@@ -443,7 +390,7 @@ for (var block_index = 0; block_index < num_blocks; block_index++) {
         response_ends_trial: false,
         trial_ends_after_audio: true,
         post_trial_gap: 500,
-        prompt: '<p style=font-size:2vw>First pair playing...</p>',
+        prompt: '<p style=font-size:1.5vw>First pair playing...</p>',
         data: {
           block: block_index + 1,
           phase: 'memory_trial_pair_1',
@@ -461,7 +408,7 @@ for (var block_index = 0; block_index < num_blocks; block_index++) {
         response_allowed_while_playing: false,
         response_ends_trial: false,
         trial_ends_after_audio: true,
-        prompt: '<p style=font-size:2vw>Second pair playing...</p>',
+        prompt: '<p style=font-size:1.5vw>Second pair playing...</p>',
         data: {
           block: block_index + 1,
           phase: 'memory_trial_pair_2',
@@ -515,7 +462,7 @@ timeline.push({
 // Preference Instructions
 timeline.push({
   type: jsPsychInstructions,
-  pages: ['<p style=font-size:2vw>Please state your preference for the melodies you have heard. Rate how much you liked each of the following on a scale from "Did not like at all" to "Liked very much". Click "Continue" to begin.</p>'],
+  pages: ['<p style=font-size:1.5vw>Please state your preference for the melodies you have heard. Rate how much you liked each of the following on a scale from "Did not like at all" to "Liked very much". Click "Continue" to begin.</p>'],
   button_label_next: 'Continue',
   button_label_previous: 'Go back',
   show_clickable_nav: true,
@@ -565,22 +512,22 @@ timeline.push({
 timeline.push({
   type: jsPsychSurveyText,
   questions: [{
-    prompt: '<p style=font-size:2vw>What strategies did you use to decide which of the melodies you were more confident you heard earlier in the experiment?</p>', name: "DecisionStrategies", required: false
+    prompt: '<p style=font-size:1.5vw>What strategies did you use to decide which of the melodies you were more confident you heard earlier in the experiment?</p>', name: "DecisionStrategies", required: false
   },
     {
-      prompt: '<p style=font-size:2vw>Do you sing or play a musical instrument? Type "yes" or "no" to respond.</p>', name: "singOrPlay", required: false
+      prompt: '<p style=font-size:1.5vw>Do you sing or play a musical instrument? Type "yes" or "no" to respond.</p>', name: "singOrPlay", required: false
     },
     {
-      prompt: '<p style=font-size:2vw>If you sing or play a musical instrument, please specify your instrument or voice type (e.g., piano, guitar, soprano, etc.). If you do not, type "N/A".</p>', name: "InstrumentType", required: false
+      prompt: '<p style=font-size:1.5vw>If you sing or play a musical instrument, please specify your instrument or voice type (e.g., piano, guitar, soprano, etc.). If you do not, type "N/A".</p>', name: "InstrumentType", required: false
     },
     {
-      prompt: '<p style=font-size:2vw>What device are you using to take this survey (e.g., phone, laptop, etc.)?</p>', name: "surveyDevice", required: false
+      prompt: '<p style=font-size:1.5vw>What device are you using to take this survey (e.g., phone, laptop, etc.)?</p>', name: "surveyDevice", required: false
     },
     {
-      prompt: '<p style=font-size:2vw>What device are you using to listen to the sounds in this survey (e.g., headphones, laptop speakers, etc.)?</p>', name: "audioDevice", required: false
+      prompt: '<p style=font-size:1.5vw>What device are you using to listen to the sounds in this survey (e.g., headphones, laptop speakers, etc.)?</p>', name: "audioDevice", required: false
     },
     {
-      prompt: "<p style=font-size:2vw>Was there any point you believe a technical error occurred during the study (i.e., a sound didn't play, something didn't show up, etc.)?</p>", name: "technicalIssues", required: false
+      prompt: "<p style=font-size:1.5vw>Was there any point you believe a technical error occurred during the study (i.e., a sound didn't play, something didn't show up, etc.)?</p>", name: "technicalIssues", required: false
     }],
     on_finish: function(data) {
     // Parse the JSON response
@@ -605,67 +552,67 @@ timeline.push({
 timeline.push({
   type: jsPsychSurveyMultiChoice,
   questions: [{
-    prompt: '<p style=font-size:2vw>Do you identify as a musician?</p>', name: "musicalIdentity", options: ["Yes", "No"], required: false, data: {
+    prompt: '<p style=font-size:1.5vw>Do you identify as a musician?</p>', name: "musicalIdentity", options: ["Yes", "No"], required: false, data: {
       phase: 'musicalIdentity'
     }, vertical: true
   },
     {
-      prompt: '<p style=font-size:2vw>If you sing or play a musical instrument, approximately how many years have you been doing so?</p>', name: "musicalExperience", options: ["I do not sing or play an instrument", "Less than 1 year", "1-2 years", "2-3 years", "3-4 years", "4-5 years", "5-10 years", "More than 10 years"], required: false, data: {
+      prompt: '<p style=font-size:1.5vw>If you sing or play a musical instrument, approximately how many years have you been doing so?</p>', name: "musicalExperience", options: ["I do not sing or play an instrument", "Less than 1 year", "1-2 years", "2-3 years", "3-4 years", "4-5 years", "5-10 years", "More than 10 years"], required: false, data: {
         phase: 'musicalExperience'
       }, vertical: true
     },
     {
-      prompt: '<p style=font-size:2vw>If you sing or play a musical instrument, approximately how long has it been since you have sung or played consistently?</p>', name: "timesinceMusicalExperience", options: ["I do not sing or play an instrument", "Less than 1 year", "1-2 years", "2-3 years", "3-4 years", "4-5 years", "5-10 years", "More than 10 years"], required: false, data: {
+      prompt: '<p style=font-size:1.5vw>If you sing or play a musical instrument, approximately how long has it been since you have sung or played consistently?</p>', name: "timesinceMusicalExperience", options: ["I do not sing or play an instrument", "Less than 1 year", "1-2 years", "2-3 years", "3-4 years", "4-5 years", "5-10 years", "More than 10 years"], required: false, data: {
         phase: 'timesinceMusicalExperience'
       }, vertical: true
     },
     {
-      prompt: '<p style=font-size:2vw>How important is music to you?</p>', name: "musicalImportance", options: ["Not at all important", "Slightly important", "Moderately important", "Very important", "Extremely important"], required: false, data: {
+      prompt: '<p style=font-size:1.5vw>How important is music to you?</p>', name: "musicalImportance", options: ["Not at all important", "Slightly important", "Moderately important", "Very important", "Extremely important"], required: false, data: {
         phase: 'musicalImportance'
       }, vertical: true
     },
     {
-      prompt: '<p style=font-size:2vw>How motivated are you to complete this survey accurately?</p>', name: "motivation", options: ["Not at all motivated", "Slightly motivated", "Moderately motivated", "Very motivated", "Extremely motivated"], required: false, data: {
+      prompt: '<p style=font-size:1.5vw>How motivated are you to complete this survey accurately?</p>', name: "motivation", options: ["Not at all motivated", "Slightly motivated", "Moderately motivated", "Very motivated", "Extremely motivated"], required: false, data: {
         phase: 'musicalmotivation'
       }, vertical: true
     },
     {
-      prompt: '<p style=font-size:2vw>Approximately how many other surveys have you taken that involved listening to audio (e.g., sound clips, music, etc.)?</p>', name: "audioSurveyExperience", options: ["0", "1-2", "3-4", "5 or more"], required: false, data: {
+      prompt: '<p style=font-size:1.5vw>Approximately how many other surveys have you taken that involved listening to audio (e.g., sound clips, music, etc.)?</p>', name: "audioSurveyExperience", options: ["0", "1-2", "3-4", "5 or more"], required: false, data: {
         phase: 'audioSurveyExperience'
       }, vertical: true
     },
     {
-      prompt: '<p style=font-size:2vw>Do you have normal or corrected-to-normal hearing?</p>', name: "normalHearing", options: ["Yes", "No"], required: false, data: {
+      prompt: '<p style=font-size:1.5vw>Do you have normal or corrected-to-normal hearing?</p>', name: "normalHearing", options: ["Yes", "No"], required: false, data: {
         phase: 'normalHearing'
       }, vertical: true
     },
     {
-      prompt: '<p style=font-size:2vw>Do you have a history of inner ear infections/tubes?</p>', name: "earHealth1", options: ["Yes", "No"], required: false, data: {
+      prompt: '<p style=font-size:1.5vw>Do you have a history of inner ear infections/tubes?</p>', name: "earHealth1", options: ["Yes", "No"], required: false, data: {
         phase: 'earHealth1'
       }, vertical: true
     },
     {
-      prompt: '<p style=font-size:2vw>Do you have a history of excessive ear wax or similar conditions?</p>', name: "earHealth2", options: ["Yes", "No"], required: false, data: {
+      prompt: '<p style=font-size:1.5vw>Do you have a history of excessive ear wax or similar conditions?</p>', name: "earHealth2", options: ["Yes", "No"], required: false, data: {
         phase: 'earHealth2'
       }, vertical: true
     },
     {
-      prompt: '<p style=font-size:2vw>Have you been diagnosed with any kind of abnormal ear anatomy (e.g., small ear canals)?</p>', name: "earHealth3", options: ["Yes", "No"], required: false, data: {
+      prompt: '<p style=font-size:1.5vw>Have you been diagnosed with any kind of abnormal ear anatomy (e.g., small ear canals)?</p>', name: "earHealth3", options: ["Yes", "No"], required: false, data: {
         phase: 'earHealth3'
       }, vertical: true
     },
     {
-      prompt: '<p style=font-size:2vw>Do you use any kind of hearing aid device?</p>', name: "hearingAid", options: ["Yes", "No"], required: false, data: {
+      prompt: '<p style=font-size:1.5vw>Do you use any kind of hearing aid device?</p>', name: "hearingAid", options: ["Yes", "No"], required: false, data: {
         phase: 'hearingAid'
       }, vertical: true
     },
     {
-      prompt: '<p style=font-size:2vw>Do you have hearing loss in either of your ears?</p>', name: "hearingLoss", options: ["Yes - hearing loss in left ear", "Yes - hearing loss in right ear", "Yes - hearing loss in both ears", "No", "Unsure"], required: false, data: {
+      prompt: '<p style=font-size:1.5vw>Do you have hearing loss in either of your ears?</p>', name: "hearingLoss", options: ["Yes - hearing loss in left ear", "Yes - hearing loss in right ear", "Yes - hearing loss in both ears", "No", "Unsure"], required: false, data: {
         phase: 'hearingLoss'
       }, vertical: true
     },
     {
-      prompt: '<p style=font-size:2vw>Please indicate your hearing ability without a hearing aid:</p>', name: "hearingAbility", options: ["Deaf", "Poor", "Average", "Good", "Excellent"], required: false, data: {
+      prompt: '<p style=font-size:1.5vw>Please indicate your hearing ability without a hearing aid:</p>', name: "hearingAbility", options: ["Deaf", "Poor", "Average", "Good", "Excellent"], required: false, data: {
         phase: 'hearingAbility'
       }, vertical: true
     }],
@@ -692,7 +639,7 @@ timeline.push({
 var demographics_age = {
   type: jsPsychSurveyText,
   questions: [{
-    prompt: '<p style=font-size:2vw>Please enter your age in numerals (e.g., "24")</p>',
+    prompt: '<p style=font-size:1.5vw>Please enter your age in numerals (e.g., "24")</p>',
     name: 'age',
     required: false
   }],
@@ -706,7 +653,7 @@ var demographics_age = {
 var demographics_gender = {
   type: jsPsychSurveyMultiSelect,
   questions: [{
-    prompt: '<p style=font-size:2vw>Which of the following gender identities best describes you? Please select all that apply.</p>',
+    prompt: '<p style=font-size:1.5vw>Which of the following gender identities best describes you? Please select all that apply.</p>',
     name: 'gender',
     options: [
       "Woman",
@@ -726,7 +673,7 @@ var demographics_gender = {
 var demographics_gender_other = {
   type: jsPsychSurveyText,
   questions: [{
-    prompt: '<p style=font-size:2vw>If you selected "Other", please specify. If you chose another option please answer "N/A"</p>',
+    prompt: '<p style=font-size:1.5vw>If you selected "Other", please specify. If you chose another option please answer "N/A"</p>',
     name: 'gender_other',
     required: false,
     vertical: true
@@ -738,7 +685,7 @@ var demographics_gender_other = {
 var demographics_race = {
   type: jsPsychSurveyMultiChoice,
   questions: [{
-    prompt: '<p style=font-size:2vw>Which of the following best describes you?</p>',
+    prompt: '<p style=font-size:1.5vw>Which of the following best describes you?</p>',
     name: 'race',
     options: [
       "Asian or Pacific Islander",
@@ -763,9 +710,9 @@ timeline.push(demographics_race);
 timeline.push({
   type: jsPsychInstructions,
   pages: [
-    '<p style=font-size:2vw>Thank you for completing the study.</p>',
-    '<p style=font-size:2vw>The researcher\'s goal is to examine the relationship between memory and prediction for music, specifically, how memory for music develops over time and how the predictability of music influences preference for a song. With the data you have provided, we will be able to see, for example, if memory for a melody and the ability to predict when a melody will be heard influences how much a person likes that melody. If you have any questions, please contact the researcher (pjohnson4@albany.edu).</p>',
-    '<p style=font-size:2vw>You may now close the study by hitting the "Continue" button.</p>'],
+    '<p style=font-size:1.5vw>Thank you for completing the study.</p>',
+    '<p style=font-size:1.5vw>The researcher\'s goal is to examine the relationship between memory and prediction for music, specifically, how memory for music develops over time and how the predictability of music influences preference for a song. With the data you have provided, we will be able to see, for example, if memory for a melody and the ability to predict when a melody will be heard influences how much a person likes that melody. If you have any questions, please contact the researcher (pjohnson4@albany.edu).</p>',
+    '<p style=font-size:1.5vw>You may now close the study by hitting the "Continue" button.</p>'],
   button_label_next: 'Continue',
   button_label_previous: 'Go back',
   show_clickable_nav: true,
