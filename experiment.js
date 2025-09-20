@@ -290,6 +290,7 @@ for (var block_index = 0; block_index < num_blocks; block_index++) {
         response_ends_trial: false,
         trial_ends_after_audio: true,
         prompt: '<p style=font-size:1.5vw>First pair playing...</p>',
+        post_trial_gap: 250,
         data: {
           block: block_index + 1,
           phase: 'memory_trial_pair_1',
@@ -307,7 +308,7 @@ for (var block_index = 0; block_index < num_blocks; block_index++) {
         response_allowed_while_playing: false,
         response_ends_trial: false,
         trial_ends_after_audio: true,
-        post_trial_gap: 250,
+        post_trial_gap: 1000,
         prompt: '<p style=font-size:1.5vw>First pair playing...</p>',
         data: {
           block: block_index + 1,
@@ -348,7 +349,7 @@ for (var block_index = 0; block_index < num_blocks; block_index++) {
         max: 100,
         slider_start: 50,
         response_allowed_while_playing: false,
-        post_trial_gap: 250,
+        post_trial_gap: 1000,
         require_movement: true,
         data: {
           block: block_index + 1,
@@ -389,7 +390,7 @@ for (var block_index = 0; block_index < num_blocks; block_index++) {
         response_allowed_while_playing: false,
         response_ends_trial: false,
         trial_ends_after_audio: true,
-        post_trial_gap: 250,
+        post_trial_gap: 1000,
         prompt: '<p style=font-size:1.5vw>First pair playing...</p>',
         data: {
           block: block_index + 1,
@@ -430,7 +431,7 @@ for (var block_index = 0; block_index < num_blocks; block_index++) {
         max: 100,
         slider_start: 50,
         response_allowed_while_playing: false,
-        post_trial_gap: 250,
+        post_trial_gap: 1000,
         require_movement: true,
         data: {
           block: block_index + 1,
