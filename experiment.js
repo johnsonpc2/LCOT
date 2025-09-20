@@ -113,8 +113,6 @@ var exposure_stream = [];
 // ##### SLIDE DEFINITIONS #####
 // Trial of the preference task
 
-// ADD DEFINITION FOR EXPOSURE TRIAL HERE
-
 preference_trial = {
   type: jsPsychAudioSliderResponse,
   stimulus: jsPsych.timelineVariable('preference_stim'),
@@ -239,12 +237,11 @@ for (var block_index = 0; block_index < num_blocks; block_index++) {
       exposure_block.push({
         component_id: block_units[unit_index][component_index],
         stimulus: assigned_files[block_units[unit_index][component_index]] + '_loud.mp3',
+        post_trial_gap: 250,
         block: block_index
       });
     }
   }
-
-  timeline.push(exposure_stream);
 
   console.log(exposure_block);
 
