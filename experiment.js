@@ -11,17 +11,6 @@ const pavlovia_finish = {
 const jsPsych = initJsPsych({
 });
 
-var css = `
-<style>
-.custom-button-style .jspsych-audio-slider-response-button {
-    display: block !important;
-    margin: 20px auto 0 auto !important;
-    text-align: center !important;
-}
-</style>
-`;
-document.head.insertAdjacentHTML('beforeend', css);
-
 // ##### DEFINE THE CONSTANTS AND VARIABLES USED LATER #####
 // Store audio files so we can use them later
 const audio_files = [
