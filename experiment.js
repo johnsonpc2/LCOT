@@ -468,18 +468,6 @@ for (var block_index = 0; block_index < num_blocks; block_index++) {
   };
 }
 
-timeline.push(exposure_block); // Push exposure #2
-
-timeline.push() // Push test #2
-
-timeline.push(exposure_block); // Push exposure # 3
-
-timeline.push() // Push test # 3
-
-timeline.push(exposure_block); // Push exposure # 4
-
-timeline.push(); // Push test # 4
-
 
 // PREFERENCE TASK
 timeline.push({
