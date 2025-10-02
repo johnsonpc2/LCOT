@@ -262,8 +262,6 @@ for (var block_index = 0; block_index < num_blocks; block_index++) {
     timeline: [trial_1],
     timeline_variables: exposure_block});
 
-  console.log(exposure_block);
-
   // Test instructions
   timeline.push({
     type: jsPsychInstructions,
