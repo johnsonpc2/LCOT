@@ -242,7 +242,25 @@ for (var block_index = 0; block_index < num_blocks; block_index++) {
     }
   }
 
-  timeline.push(exposure_block);
+  // Assigns the timeline variables from the exposure stream we just created
+  var trial_1 = {
+      type: jsPsychAudioKeyboardResponse,
+      stimulus: jsPsych.timelineVariable("stimulus"),
+      response_allowed_while_playing: false,
+      response_ends_trial: false,
+      trial_ends_after_audio: true,
+      prompt: "<p style=font-size:1.3vw>Sound is playing...</p>",
+      data: {
+        component_id: jsPsych.timelineVariable("component_id"),
+        block: jsPsych.timelineVariable("block"),
+        phase: "exposure_stream_trial"
+      }
+  };
+
+// Plays audio of the exposure stream using the timeline variable assignments above
+  timeline.push({
+    timeline: [trial_1],
+    timeline_variables: exposure_block});
 
   console.log(exposure_block);
 
