@@ -105,7 +105,7 @@ task_stimuli = [{
   listening: 5 sec/melody, 2 melodies/pair, 24 pair presentations;
   test: 5sec/melody, 2 melodies/pair, 2 pairs/test trial, 10 test trials, + 4 sec/response, 10 responses,
   4 blocks puts us at 32 minutes of listening*/
-const num_blocks = 4;
+const num_blocks = 1;
 
 // Create an empty list to hold the entire exposure stream.
 var exposure_stream = [];
@@ -153,9 +153,9 @@ timeline.push({
 timeline.push({
   type: jsPsychInstructions,
   pages: [// Each new item in the list shows up on a new page
-    '<p style=font-size:4vw>Welcome to the study!</p>',
+    '<p style=font-size:4vw>Welcome!</p>',
     '<p style=font-size:1.5vw>In this study you will complete two tasks: First, you will complete a series of short listening tasks and answer questions about what you hear. After completing the listening tasks, you will complete a questionnaire about yourself and your hearing. The study takes about 40-45 minutes to complete. All responses will remain anonymous.</p>',
-    '<p style=font-size:1.5vw>This study requires you to listen to audio played from your browser and make responses with your keyboard. Please complete the study on a device with a <b>physical</b> keyboard, such as a laptop or desktop computer. Please also ensure you are in a quiet environment. If possible, use headphones or earbuds to complete the task. On the next page you will hear sample sounds like those you will hear later in the study. Lower your volume now, <b>BEFORE</b> continuing, and gradually increase your volume to a comfortable level while the sample audio plays. When you are ready, press the "Continue" button to begin.</p>'],
+    '<p style=font-size:1.5vw>This study requires you to listen to audio played from your browser and make responses with your keyboard. Please complete the study on a device with a <b>physical</b> keyboard, such as a laptop or desktop computer. Please also ensure you are in a quiet environment. If possible, use headphones or earbuds to complete the task. On the next page you will hear sample sounds like those you will hear later in the study. Lower your volume now <b>before</b> continuing, and gradually increase your volume to a comfortable level while the sample audio plays. When you are ready, press the "Continue" button to move to the next page.</p>'],
   button_label_next: 'Continue',
   button_label_previous: 'Go back',
   show_clickable_nav: true,
@@ -179,7 +179,7 @@ timeline.push({
     type: jsPsychAudioButtonResponse,
     stimulus: sample_tone_file,
     choices: ['Play again', 'Continue'], // Option 1 and 2
-    prompt: '<p style=font-size:1.5vw>Adjust the volume so the sample can be heard comfortably. Click the "Play Again" button to repeat the samples. Once comfortable, click "Continue" to begin.</p>'
+    prompt: '<p style=font-size:1.5vw>Adjust the volume so the sample can be heard comfortably. Click the "Play Again" button to repeat the sample. Once comfortable, click "Continue" to begin.</p>'
   }],
   response_allowed_while_playing: false,
   loop_function: function(data) {
@@ -212,7 +212,7 @@ timeline.push({
 timeline.push({
   type: jsPsychInstructions,
   pages: [
-    '<p style=font-size:1.5vw>This portion of the study will take just over 15 minutes. Please press the "Continue" button when you are ready to begin.</p>'],
+    '<p style=font-size:1.5vw>This portion of the study will take around 25 minutes. You will hear melodies and asked questions about what you hear. Please press the "Continue" button to begin.</p>'],
   button_label_next: 'Continue',
   button_label_previous: 'Go back',
   show_clickable_nav: true,
@@ -268,7 +268,7 @@ for (var block_index = 0; block_index < num_blocks; block_index++) {
   timeline.push({
     type: jsPsychInstructions,
     pages: [
-      '<p style=font-size:1.5vw>You are about to hear the melodies you just heard again. Some melodies <b>might</b> be in the same order you heard previously, but some may be different. Please rate your confidence regarding whether the sequences we play now <b>match the SPECIFIC order</b> you heard earlier. Following these questions, you will listen to more melodies. Click "Continue" to start.</p>'
+      '<p style=font-size:1.5vw>You are about to hear the melodies you just listened to again. Some melodies <b>might</b> be in the same order you heard previously, but some may be different. Please rate your confidence regarding whether the sequences we play now <b>match the SPECIFIC order</b> you heard earlier. Following these questions, you will listen to more melodies. Click "Continue" to start.</p>'
     ],
     button_label_next: 'Continue',
     button_label_previous: 'Go back',
@@ -484,7 +484,7 @@ timeline.push({
 // Preference Instructions
 timeline.push({
   type: jsPsychInstructions,
-  pages: ['<p style=font-size:1.5vw>Please state your preference for the melodies you have heard. Rate how much you liked each of the following on a scale from "Did not like at all" to "Liked very much". Click "Continue" to begin.</p>'],
+  pages: ['<p style=font-size:1.5vw>In this portion of the study, we will ask you how you prefer the melodies you have heard. Rate how much you liked each of the following on a scale from "Not at all" to "Very much". This portion will only take a couple minutes. Click "Continue" to begin.</p>'],
   button_label_next: 'Continue',
   button_label_previous: 'Go back',
   show_clickable_nav: true,
