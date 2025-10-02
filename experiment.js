@@ -528,6 +528,20 @@ timeline.push({
   }
 });
 
+// General task instructions
+timeline.push({
+  type: jsPsychInstructions,
+  pages: [// Each new item in the list shows up on a new page
+    '<p style=font-size:4vw>Thanks for completing everything in the study so far—your almost done!</p>',
+    '<p style=font-size:1.5vw>The final task in the study is a demographic question. Please answer the following questions to be best of your ability. Click "Continue" to begin.</p>'],
+  button_label_next: 'Continue',
+  button_label_previous: 'Go back',
+  show_clickable_nav: true,
+  data: {
+    phase: 'demo_instructions'
+  } // Record extra data about the slide.
+});
+
 // Individual differences questionnaire text entry
 timeline.push({
   type: jsPsychSurveyText,
@@ -730,9 +744,9 @@ timeline.push(demographics_race);
 timeline.push({
   type: jsPsychInstructions,
   pages: [
-    '<p style=font-size:1.5vw>Thank you for completing the study.</p>',
+    '<p style=font-size:1.5vw>Thank you for completing the study! Click "Continue" to move to the debriefing on the next page and receive credit for your participation.</p>',
     '<p style=font-size:1.5vw>The researcher\'s goal is to examine the relationship between memory and prediction for music, specifically, how memory for music develops over time and how the predictability of music influences preference for a song. With the data you have provided, we will be able to see, for example, if memory for a melody and the ability to predict when a melody will be heard influences how much a person likes that melody. If you have any questions, please contact the researcher (pjohnson4@albany.edu).</p>',
-    '<p style=font-size:1.5vw>You may now close the study by hitting the "Continue" button.</p>'],
+    '<p style=font-size:1.5vw>By hitting the "Continue" button on this page, you will complete the study and indication of your participation will be sent to the Sona pool so you earn credit for participating.</p>'],
   button_label_next: 'Continue',
   button_label_previous: 'Go back',
   show_clickable_nav: true,
