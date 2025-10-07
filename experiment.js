@@ -143,10 +143,26 @@ timeline.push(pavlovia_init)
 timeline.push({
   type: jsPsychFullscreen,
   fullscreen_mode: true,
-  message: '<p style=font-size:1.5vw>Click the "Continue" button below to enter fullscreen mode. Please remain in fullscreen mode for the duration of the study. Click the "Continue" button to begin.</p>',
+  message: '<p style=font-size:1.5vw>Click the "Continue" button to enter fullscreen mode. Please remain in fullscreen mode for the duration of the study. Click the "Continue" button to read the informed consent and begin the study.</p>',
   data: {
     phase: 'fullscreen_agreement'
   }
+});
+
+// Informed Consent
+timeline.push({
+  type: jsPsychInstructions,
+  pages: [// Each new item in the list shows up on a new page
+    "<p style=font-size:1.5vw>We are researchers at the University at Albany in the Department of Psychology, conducting a research study in which we now invite you to take part. The following pages have important information about this study's purpose, what we will ask you to do if you decide to participate, and the way we would like to use the information we gather if you choose to be in the study.</p>",
+    "<p style=font-size:1.5vw>You are being asked to participate in a research study about music and people's hearing ability. The purpose of this study is to investigate what people prefer and remember about music. Your participation will help us better understand what people notice about music and how people gather and remember information about what they experience in general. You will listen to music for about 30 minutes, and then will be asked questions about what you heard. Then, you will answer demographic questions about yourself and share basic information about your hearing. All responses will be anonymous, and we will not collect any data linking your name or identity with your data. You will be provided with our contact information in case you have any questions about our research.</p>",
+    "<p style=font-size:1.5vw>Study participation will take place at a time of your choosing. Once you begin, you will need to complete the study in one sitting. Participation will take approximately 45 minutes. All study procedures will take place online. We ask that you complete the study in a quiet environment to minimize distractions. You will have to listen to music throughout this study, please complete the study with headphones or earbuds so you can clearly hear the music played in your web browser.</p>",
+    "<p style=font-size:1.5vw>The risks associated with this study are no greater than those you might encounter in everyday life. You may experience mild emotional discomfort answering questions about your identity. Music will play in your browser throughout the study, and you will be warned in advance to lower the volume of your computer so you don't experience hearing discomfort./n As with all research, there is a chance that confidentiality of the information we collect from you could be breached; we will take steps to minimize this risk, as discussed in more detail below.</p>"],
+  button_label_next: 'Continue',
+  button_label_previous: 'Go back',
+  show_clickable_nav: true,
+  data: {
+    phase: 'intro_instructions'
+  } // Record extra data about the slide.
 });
 
 // General task instructions
