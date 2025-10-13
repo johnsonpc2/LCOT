@@ -232,7 +232,7 @@ timeline.push({
 timeline.push({
   type: jsPsychInstructions,
   pages: [
-    '<p style=font-size:1.5vw>This portion of the study will take around 25 minutes. You will hear melodies and asked questions about what you hear. Please press the "Continue" button to begin.</p>'],
+    '<p style=font-size:1.5vw>This portion of the study will take around 25 minutes. You will hear melodies and be asked questions about what you hear. Please press the "Continue" button to begin.</p>'],
   button_label_next: 'Continue',
   button_label_previous: 'Go back',
   show_clickable_nav: true,
