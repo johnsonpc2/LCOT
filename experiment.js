@@ -328,7 +328,7 @@ for (var block_index = 0; block_index < num_blocks; block_index++) {
         response_ends_trial: false,
         trial_ends_after_audio: true,
         prompt: '<p style=font-size:1.5vw>First pair playing...</p>',
-        post_trial_gap: 250,
+        post_trial_gap: 0,
         data: {
           block: block_index + 1,
           phase: 'memory_trial_pair_1',
@@ -346,7 +346,7 @@ for (var block_index = 0; block_index < num_blocks; block_index++) {
         response_allowed_while_playing: false,
         response_ends_trial: false,
         trial_ends_after_audio: true,
-        post_trial_gap: 1000,
+        post_trial_gap: 500,
         prompt: '<p style=font-size:1.5vw>First pair playing...</p>',
         data: {
           block: block_index + 1,
@@ -366,7 +366,7 @@ for (var block_index = 0; block_index < num_blocks; block_index++) {
         response_ends_trial: false,
         trial_ends_after_audio: true,
         prompt: '<p style=font-size:1.5vw>Second pair playing...</p>',
-        post_trial_gap: 250,
+        post_trial_gap: 0,
         data: {
           block: block_index + 1,
           phase: 'memory_trial_pair_2',
@@ -387,7 +387,7 @@ for (var block_index = 0; block_index < num_blocks; block_index++) {
         max: 100,
         slider_start: 50,
         response_allowed_while_playing: false,
-        post_trial_gap: 1000,
+        post_trial_gap: 500,
         require_movement: true,
         data: {
           block: block_index + 1,
@@ -410,7 +410,7 @@ for (var block_index = 0; block_index < num_blocks; block_index++) {
         response_ends_trial: false,
         trial_ends_after_audio: true,
         prompt: '<p style=font-size:1.5vw>First pair playing...</p>',
-        post_trial_gap: 250,
+        post_trial_gap: 0,
         data: {
           block: block_index + 1,
           phase: 'memory_trial_pair_1',
@@ -428,7 +428,7 @@ for (var block_index = 0; block_index < num_blocks; block_index++) {
         response_allowed_while_playing: false,
         response_ends_trial: false,
         trial_ends_after_audio: true,
-        post_trial_gap: 1000,
+        post_trial_gap: 500,
         prompt: '<p style=font-size:1.5vw>First pair playing...</p>',
         data: {
           block: block_index + 1,
@@ -448,7 +448,7 @@ for (var block_index = 0; block_index < num_blocks; block_index++) {
         response_ends_trial: false,
         trial_ends_after_audio: true,
         prompt: '<p style=font-size:1.5vw>Second pair playing...</p>',
-        post_trial_gap: 250,
+        post_trial_gap: 0,
         data: {
           block: block_index + 1,
           phase: 'memory_trial_pair_2',
@@ -469,7 +469,7 @@ for (var block_index = 0; block_index < num_blocks; block_index++) {
         max: 100,
         slider_start: 50,
         response_allowed_while_playing: false,
-        post_trial_gap: 1000,
+        post_trial_gap: 500,
         require_movement: true,
         data: {
           block: block_index + 1,
@@ -484,6 +484,36 @@ for (var block_index = 0; block_index < num_blocks; block_index++) {
     }
 
   };
+
+  // Insert a slide here at the end of the test phase of each of the four blocks to thank them for answering questions, and indicate that they're about to hear more melodies
+  if (block_index < num_blocks - 1) {
+
+    timeline.push({
+  type: jsPsychHtmlKeyboardResponse,
+  stimulus: '<p style="font-size:1.5vw">Thanks for listening and answering questions so far. You are about to hear more pairs and rate them in a similar manner.</p>',
+  choices: 'NO_KEYS',
+  trial_duration: 8000,
+  response_ends_trial: false,
+  data: {
+    phase: 'intermediate_listening_test_slide'
+    }
+  });
+
+  } else {
+
+    timeline.push({
+  type: jsPsychHtmlKeyboardResponse,
+  stimulus: '<p style="font-size:1.5vw">Thanks for listening and answering questions! You have completed this portion of the study. Now you will complete a preference rating task.</p>',
+  choices: 'NO_KEYS',
+  trial_duration: 10000,
+  response_ends_trial: false,
+  data: {
+    phase: 'intermediate_listening_test_slide'
+    }
+  });
+
+  }
+
 }
 
 
