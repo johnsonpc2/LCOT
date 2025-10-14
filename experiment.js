@@ -613,25 +613,6 @@ timeline.push({
     {
       prompt: "<p style='font-size:1.5vw'>Was there any point you believe a technical error occurred during the study (i.e., a sound didn't play, something didn't show up, etc.)?</p>", name: "technicalIssues", required: false
     }],
-    on_finish: function(data) {
-     const responses = JSON.parse(data.response);
-     
-     data.musicalIdentity = responses.musicalIdentity;
-     data.musicalExperience = responses.musicalExperience;
-     data.timesinceMusicalExperience = responses.timesinceMusicalExperience;
-     data.musicalImportance = responses.musicalImportance;
-     data.motivation = responses.motivation;
-     data.audioSurveyExperience = responses.audioSurveyExperience;
-     data.normalHearing = responses.normalHearing;
-     data.earHealth1 = responses.earHealth1;
-     data.earHealth2 = responses.earHealth2;
-     data.earHealth3 = responses.earHealth3;
-     data.hearingAid = responses.hearingAid;
-     data.hearingLoss = responses.hearingLoss;
-     data.hearingAbility = responses.hearingAbility;
-     
-     delete data.response;
-   },
   data: {
     phase: 'individual_diffs_text1'
   }});
@@ -704,21 +685,26 @@ timeline.push({
         phase: 'hearingAbility'
       }, vertical: true
     }],
+    ,
     on_finish: function(data) {
-    // Parse the JSON response
-    const responses = JSON.parse(data.response);
-    
-    // Add each response as individual columns
-    data.musicalIdentity = responses.musicalIdentity;
-    data.musicalExperience = responses.musicalExperience;
-    data.InstrumentType = responses.InstrumentType;
-    data.surveyDevice = responses.surveyDevice;
-    data.audioDevice = responses.audioDevice;
-    data.technicalIssues = responses.technicalIssues;
-    
-    // Optional: remove the original JSON response to clean up data
-    delete data.response;
-  },
+     const responses = JSON.parse(data.response);
+     
+     data.musicalIdentity = responses.musicalIdentity;
+     data.musicalExperience = responses.musicalExperience;
+     data.timesinceMusicalExperience = responses.timesinceMusicalExperience;
+     data.musicalImportance = responses.musicalImportance;
+     data.motivation = responses.musicalMotivation;
+     data.audioSurveyExperience = responses.audioSurveyExperience;
+     data.normalHearing = responses.normalHearing;
+     data.earHealth1 = responses.earHealth1;
+     data.earHealth2 = responses.earHealth2;
+     data.earHealth3 = responses.earHealth3;
+     data.hearingAid = responses.hearingAid;
+     data.hearingLoss = responses.hearingLoss;
+     data.hearingAbility = responses.hearingAbility;
+     
+     delete data.response;
+   },
   data: {
     phase: 'individual_diffs_multipleChoice'
   }});
