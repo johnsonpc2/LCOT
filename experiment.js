@@ -57,7 +57,7 @@ const study_units = [
 ];
 
 // Hard-coded structure of the stimuli for the exposure blocks
-task_stimuli = [{
+var task_stimuli = [{
   intact: [0,
     1],
   rearranged: [0,
@@ -119,7 +119,7 @@ preference_trial = {
   labels: [
     "Not at all",
     "Very much"],
-  prompt: '<p style=font-size:1.5vw>How much did you like this melody?</p>',
+  prompt: '<p style="font-size:1.5vw">How much did you like this melody?</p>',
   slider_width: 480,
   min: 0,
   max: 100,
@@ -143,7 +143,7 @@ timeline.push(pavlovia_init)
 timeline.push({
   type: jsPsychFullscreen,
   fullscreen_mode: true,
-  message: '<p style=font-size:1.5vw>Click the "Continue" button to enter fullscreen mode. Please remain in fullscreen mode for the duration of the study. Click the "Continue" button to read the informed consent and begin the study.</p>',
+  message: '<p style="font-size:1.5vw">Click the "Continue" button to enter fullscreen mode. Please remain in fullscreen mode for the duration of the study. Click the "Continue" button to read the informed consent and begin the study.</p>',
   data: {
     phase: 'fullscreen_agreement'
   }
@@ -153,15 +153,15 @@ timeline.push({
 timeline.push({
   type: jsPsychInstructions,
   pages: [// Each new item in the list shows up on a new page
-    "<p style=font-size:1.5vw>We are researchers at the University at Albany in the Department of Psychology, conducting a research study in which we now invite you to take part. <br><br>The following pages have important information about this study's purpose, what we will ask you to do if you decide to participate, and the way we would like to use the information we gather if you choose to be in the study.</p>",
-    "<p style=font-size:1.5vw>You are being asked to participate in a research study about music and people's hearing ability. The purpose of this study is to investigate what people prefer and remember about music. Your participation will help us better understand what people notice about music and how people gather and remember information about what they experience in general. <br><br>You will listen to music for about 30 minutes, and then will be asked questions about what you heard. Then, you will answer demographic questions about yourself and share basic information about your hearing. All responses will be anonymous, and we will not collect any data linking your name or identity with your data. <br><br>You will be provided with our contact information in case you have any questions about our research.</p>",
-    "<p style=font-size:1.5vw>Study participation will take place at a time of your choosing. Once you begin, you will need to complete the study in one sitting. Participation will take approximately 45 minutes. All study procedures will take place online. <br><br>We ask that you complete the study in a quiet environment to minimize distractions. You will have to listen to music throughout this study, please complete the study with headphones or earbuds so you can clearly hear the music played in your web browser.</p>",
-    "<p style=font-size:1.5vw>The risks associated with this study are no greater than those you might encounter in everyday life. You may experience mild emotional discomfort answering questions about your identity. <br><br>Music will play in your browser throughout the study, and you will be warned in advance to lower the volume of your computer so you don't experience hearing discomfort.<br><br> As with all research, there is a chance that confidentiality of the information we collect from you could be breached; we will take steps to minimize this risk, as discussed in more detail below.</p>",
-    "<p style=font-size:1.5vw>To minimize the risks to confidentiality, we de-identify all information collected throughout the study. We may share the data we collect from you for use in future research studies or with other researchers; before analyzing any data you provide, we will remove any personally identifiable information. Further, if we share the data you provide as part of this study, we will ensure you cannot be identified before we share it. All data will be stored on secure drives and will be analyzed on password protected computers.</p>",
-    "<p style=font-size:1.5vw>Participation in this study will involve no cost to you. You will receive 1 credit in extra course credit in exchange for your participation. <br><br>Though there is no direct benefit of taking part in this research besides earning extra credit in your course, the information gathered in this study will help us better understand how people learn from, remember, and form preferences of  their experiences.</p>",
-    "<p style=font-size:1.5vw>Participation in this study is voluntary. You do not have to answer any question you do not want to answer. If at any time you would like to stop participating, you are free to do so. You may withdraw from this study at any time, and you will not be penalized in any way for deciding to stop participation. <br><br>You may choose not to participate or to stop participating in this research at any time. This will not affect your class standing, grades, employment, or any other aspects of your relationship with the University at Albany.</p>",
-    "<p style=font-size:1.5vw>If you have questions after participation in this study, you may contact the researchers at pjohnson4@albany.edu (PI), or gecox@albany.edu (Co-PI). <br><br>If you have any questions about your rights as a participant in this research, you can contact the following office at the University at Albany: <br><br>Institutional Review Board <br>University at Albany <br>Office of Regulatory and Research Compliance <br>1400 Washington Ave, ES 244 <br>Albany, NY 12222 <br>Phone: 1-866-857-5459 <br>Email: rco@albany.edu</p>",
-    "<p style=font-size:1.5vw>I have read this form and the research study has been explained to me. I have been given the opportunity to ask questions and my questions have been answered. If I have additional questions, I have been told whom to contact. By clicking the button below, I agree to participate in the research study described above.</p>"],
+    "<p style='font-size:1.5vw'>We are researchers at the University at Albany in the Department of Psychology, conducting a research study in which we now invite you to take part. <br><br>The following pages have important information about this study's purpose, what we will ask you to do if you decide to participate, and the way we would like to use the information we gather if you choose to be in the study.</p>",
+    "<p style='font-size:1.5vw'>You are being asked to participate in a research study about music and people's hearing ability. The purpose of this study is to investigate what people prefer and remember about music. Your participation will help us better understand what people notice about music and how people gather and remember information about what they experience in general. <br><br>You will listen to music for about 30 minutes, and then will be asked questions about what you heard. Then, you will answer demographic questions about yourself and share basic information about your hearing. All responses will be anonymous, and we will not collect any data linking your name or identity with your data. <br><br>You will be provided with our contact information in case you have any questions about our research.</p>",
+    "<p style='font-size:1.5vw'>Study participation will take place at a time of your choosing. Once you begin, you will need to complete the study in one sitting. Participation will take approximately 45 minutes. All study procedures will take place online. <br><br>We ask that you complete the study in a quiet environment to minimize distractions. You will have to listen to music throughout this study, please complete the study with headphones or earbuds so you can clearly hear the music played in your web browser.</p>",
+    "<p style='font-size:1.5vw'>The risks associated with this study are no greater than those you might encounter in everyday life. You may experience mild emotional discomfort answering questions about your identity. <br><br>Music will play in your browser throughout the study, and you will be warned in advance to lower the volume of your computer so you don't experience hearing discomfort.<br><br> As with all research, there is a chance that confidentiality of the information we collect from you could be breached; we will take steps to minimize this risk, as discussed in more detail below.</p>",
+    "<p style='font-size:1.5vw'>To minimize the risks to confidentiality, we de-identify all information collected throughout the study. We may share the data we collect from you for use in future research studies or with other researchers; before analyzing any data you provide, we will remove any personally identifiable information. Further, if we share the data you provide as part of this study, we will ensure you cannot be identified before we share it. All data will be stored on secure drives and will be analyzed on password protected computers.</p>",
+    "<p style='font-size:1.5vw'>Participation in this study will involve no cost to you. You will receive 1 credit in extra course credit in exchange for your participation. <br><br>Though there is no direct benefit of taking part in this research besides earning extra credit in your course, the information gathered in this study will help us better understand how people learn from, remember, and form preferences of  their experiences.</p>",
+    "<p style='font-size:1.5vw'>Participation in this study is voluntary. You do not have to answer any question you do not want to answer. If at any time you would like to stop participating, you are free to do so. You may withdraw from this study at any time, and you will not be penalized in any way for deciding to stop participation. <br><br>You may choose not to participate or to stop participating in this research at any time. This will not affect your class standing, grades, employment, or any other aspects of your relationship with the University at Albany.</p>",
+    "<p style='font-size:1.5vw'>If you have questions after participation in this study, you may contact the researchers at pjohnson4@albany.edu (PI), or gecox@albany.edu (Co-PI). <br><br>If you have any questions about your rights as a participant in this research, you can contact the following office at the University at Albany: <br><br>Institutional Review Board <br>University at Albany <br>Office of Regulatory and Research Compliance <br>1400 Washington Ave, ES 244 <br>Albany, NY 12222 <br>Phone: 1-866-857-5459 <br>Email: rco@albany.edu</p>",
+    "<p style='font-size:1.5vw'>I have read this form and the research study has been explained to me. I have been given the opportunity to ask questions and my questions have been answered. If I have additional questions, I have been told whom to contact. By clicking the button below, I agree to participate in the research study described above.</p>"],
   button_label_next: 'Continue',
   button_label_previous: 'Go back',
   show_clickable_nav: true,
@@ -174,7 +174,7 @@ timeline.push({
 timeline.push({
   type: jsPsychInstructions,
   pages: [// Each new item in the list shows up on a new page
-    '<p style=font-size:4vw>Welcome!</p><br><br><p style="font-size:1.5vw">Thanks for reading and agreeing to the consent form. In this study you will complete two tasks: First, you will complete a series of short listening tasks and answer questions about what you hear. After completing the listening tasks, you will complete a questionnaire about yourself and your hearing. The study takes about 40-45 minutes to complete. All responses will remain anonymous.</p>',
+    '<p style="font-size:4vw">Welcome!</p><br><br><p style="font-size:1.5vw">Thanks for reading and agreeing to the consent form. In this study you will complete two tasks: First, you will complete a series of short listening tasks and answer questions about what you hear. After completing the listening tasks, you will complete a questionnaire about yourself and your hearing. The study takes about 40-45 minutes to complete. All responses will remain anonymous.</p>',
     '<p style="font-size:1.5vw">This study requires you to listen to audio played from your browser and make responses with your keyboard. Please complete the study on a device with a <b>physical</b> keyboard, such as a laptop or desktop computer. Please also ensure you are in a quiet environment. If possible, use headphones or earbuds to complete the task. On the next page you will hear sample sounds like those you will hear later in the study. Lower your volume now <b>before</b> continuing, and gradually increase your volume to a comfortable level while the sample audio plays. When you are ready, press the "Continue" button to move to the next page.</p>'],
   button_label_next: 'Continue',
   button_label_previous: 'Go back',
@@ -199,7 +199,7 @@ timeline.push({
     type: jsPsychAudioButtonResponse,
     stimulus: sample_tone_file,
     choices: ['Play again', 'Continue'], // Option 1 and 2
-    prompt: '<p style=font-size:1.5vw>Adjust the volume so the sample can be heard comfortably. Click the "Play Again" button to repeat the sample. Once comfortable, click "Continue" to begin.</p>'
+    prompt: '<p style="font-size:1.5vw">Adjust the volume so the sample can be heard comfortably. Click the "Play Again" button to repeat the sample. Once comfortable, click "Continue" to begin.</p>'
   }],
   response_allowed_while_playing: false,
   loop_function: function(data) {
@@ -219,7 +219,7 @@ timeline.push({
 // Intermediate slide before the start of the exposure phase
 timeline.push({
   type: jsPsychHtmlKeyboardResponse,
-  stimulus: '<p style=font-size:4vw>LISTENING TASK</p>',
+  stimulus: '<p style="font-size:4vw">LISTENING TASK</p>',
   choices: 'NO_KEYS',
   trial_duration: 2000,
   response_ends_trial: false,
@@ -232,7 +232,7 @@ timeline.push({
 timeline.push({
   type: jsPsychInstructions,
   pages: [
-    '<p style=font-size:1.5vw>This portion of the study will take around 25 minutes. You will hear melodies and be asked questions about what you hear. Please press the "Continue" button to begin.</p>'],
+    '<p style="font-size:1.5vw">This portion of the study will take around 25 minutes. You will hear melodies and be asked questions about what you hear. Please press the "Continue" button to begin.</p>'],
   button_label_next: 'Continue',
   button_label_previous: 'Go back',
   show_clickable_nav: true,
@@ -286,7 +286,7 @@ for (var block_index = 0; block_index < num_blocks; block_index++) {
   timeline.push({
     type: jsPsychInstructions,
     pages: [
-      '<p style=font-size:1.5vw>You are about to hear the melodies you just listened to again. Some melodies <b>might</b> be in the same order you heard previously, but some may be different. Please rate your confidence regarding whether the sequences we play now <b>match the SPECIFIC order</b> you heard earlier. Following these questions, you will listen to more melodies. Click "Continue" to start.</p>'
+      '<p style="font-size:1.5vw">You are about to hear the melodies you just listened to again. Some melodies <b>might</b> be in the same order you heard previously, but some may be different. Please rate your confidence regarding whether the sequences we play now <b>match the SPECIFIC order</b> you heard earlier. Following these questions, you will listen to more melodies. Click "Continue" to start.</p>'
     ],
     button_label_next: 'Continue',
     button_label_previous: 'Go back',
@@ -327,7 +327,7 @@ for (var block_index = 0; block_index < num_blocks; block_index++) {
         response_allowed_while_playing: false,
         response_ends_trial: false,
         trial_ends_after_audio: true,
-        prompt: '<p style=font-size:1.5vw>First pair playing...</p>',
+        prompt: '<p style="font-size:1.5vw">First pair playing...</p>',
         post_trial_gap: 0,
         data: {
           block: block_index + 1,
@@ -347,7 +347,7 @@ for (var block_index = 0; block_index < num_blocks; block_index++) {
         response_ends_trial: false,
         trial_ends_after_audio: true,
         post_trial_gap: 500,
-        prompt: '<p style=font-size:1.5vw>First pair playing...</p>',
+        prompt: '<p style="font-size:1.5vw">First pair playing...</p>',
         data: {
           block: block_index + 1,
           phase: 'memory_trial_pair_1',
@@ -365,7 +365,7 @@ for (var block_index = 0; block_index < num_blocks; block_index++) {
         response_allowed_while_playing: false,
         response_ends_trial: false,
         trial_ends_after_audio: true,
-        prompt: '<p style=font-size:1.5vw>Second pair playing...</p>',
+        prompt: '<p style="font-size:1.5vw">Second pair playing...</p>',
         post_trial_gap: 0,
         data: {
           block: block_index + 1,
@@ -409,7 +409,7 @@ for (var block_index = 0; block_index < num_blocks; block_index++) {
         response_allowed_while_playing: false,
         response_ends_trial: false,
         trial_ends_after_audio: true,
-        prompt: '<p style=font-size:1.5vw>First pair playing...</p>',
+        prompt: '<p style="font-size:1.5vw">First pair playing...</p>',
         post_trial_gap: 0,
         data: {
           block: block_index + 1,
@@ -429,7 +429,7 @@ for (var block_index = 0; block_index < num_blocks; block_index++) {
         response_ends_trial: false,
         trial_ends_after_audio: true,
         post_trial_gap: 500,
-        prompt: '<p style=font-size:1.5vw>First pair playing...</p>',
+        prompt: '<p style="font-size:1.5vw">First pair playing...</p>',
         data: {
           block: block_index + 1,
           phase: 'memory_trial_pair_1',
@@ -447,7 +447,7 @@ for (var block_index = 0; block_index < num_blocks; block_index++) {
         response_allowed_while_playing: false,
         response_ends_trial: false,
         trial_ends_after_audio: true,
-        prompt: '<p style=font-size:1.5vw>Second pair playing...</p>',
+        prompt: '<p style="font-size:1.5vw">Second pair playing...</p>',
         post_trial_gap: 0,
         data: {
           block: block_index + 1,
@@ -520,7 +520,7 @@ for (var block_index = 0; block_index < num_blocks; block_index++) {
 // PREFERENCE TASK
 timeline.push({
   type: jsPsychHtmlKeyboardResponse,
-  stimulus: '<p style=font-size:4vw>PREFERENCE TASK</p>',
+  stimulus: '<p style="font-size:4vw">PREFERENCE TASK</p>',
   choices: 'NO_KEYS',
   trial_duration: 2000,
   response_ends_trial: false,
@@ -532,7 +532,7 @@ timeline.push({
 // Preference Instructions
 timeline.push({
   type: jsPsychInstructions,
-  pages: ['<p style=font-size:1.5vw>In this portion of the study, we will ask you how you prefer the melodies you have heard. Rate how much you liked each of the following on a scale from "Not at all" to "Very much". This portion will only take a couple minutes. Click "Continue" to begin.</p>'],
+  pages: ['<p style="font-size:1.5vw">In this portion of the study, we will ask you how you prefer the melodies you have heard. Rate how much you liked each of the following on a scale from "Not at all" to "Very much". This portion will only take a couple minutes. Click "Continue" to begin.</p>'],
   button_label_next: 'Continue',
   button_label_previous: 'Go back',
   show_clickable_nav: true,
@@ -569,7 +569,7 @@ timeline.push({
 // DEMOGRAPHIC SURVEY QUESTIONS
 timeline.push({
   type: jsPsychHtmlKeyboardResponse,
-  stimulus: '<p style=font-size:4vw>DEMOGRAPHIC SURVEY</p>',
+  stimulus: '<p style="font-size:4vw">DEMOGRAPHIC SURVEY</p>',
   choices: 'NO_KEYS',
   trial_duration: 2000,
   response_ends_trial: false,
@@ -582,8 +582,8 @@ timeline.push({
 timeline.push({
   type: jsPsychInstructions,
   pages: [// Each new item in the list shows up on a new page
-    '<p style=font-size:4vw>Thanks for completing everything in the study so far—your almost done!</p>',
-    '<p style=font-size:1.5vw>The final task in the study is a demographic question. Please answer the following questions to be best of your ability. Click "Continue" to begin.</p>'],
+    '<p style="font-size:3vw">Thanks for completing everything in the study so far. You are almost done!</p>',
+    '<p style="font-size:1.5vw">The final task in the study is a demographic questionnaire. Please answer the following questions to the best of your ability. Click "Continue" to begin.</p>'],
   button_label_next: 'Continue',
   button_label_previous: 'Go back',
   show_clickable_nav: true,
@@ -596,22 +596,22 @@ timeline.push({
 timeline.push({
   type: jsPsychSurveyText,
   questions: [{
-    prompt: '<p style=font-size:1.5vw>What strategies did you use to decide which of the melodies you were more confident you heard earlier in the experiment?</p>', name: "DecisionStrategies", required: false
+    prompt: '<p style="font-size:1.5vw">What strategies did you use to decide which of the melodies you were more confident you heard earlier in the experiment?</p>', name: "DecisionStrategies", required: false
   },
     {
-      prompt: '<p style=font-size:1.5vw>Do you sing or play a musical instrument? Type "yes" or "no" to respond.</p>', name: "singOrPlay", required: false
+      prompt: '<p style="font-size:1.5vw">Do you sing or play a musical instrument? Type "yes" or "no" to respond.</p>', name: "singOrPlay", required: false
     },
     {
-      prompt: '<p style=font-size:1.5vw>If you sing or play a musical instrument, please specify your instrument or voice type (e.g., piano, guitar, soprano, etc.). If you do not, type "N/A".</p>', name: "InstrumentType", required: false
+      prompt: '<p style="font-size:1.5vw">If you sing or play a musical instrument, please specify your instrument or voice type (e.g., piano, guitar, soprano, etc.). If you do not, type "N/A".</p>', name: "InstrumentType", required: false
     },
     {
-      prompt: '<p style=font-size:1.5vw>What device are you using to take this survey (e.g., phone, laptop, etc.)?</p>', name: "surveyDevice", required: false
+      prompt: '<p style="font-size:1.5vw">What device are you using to take this survey (e.g., phone, laptop, etc.)?</p>', name: "surveyDevice", required: false
     },
     {
-      prompt: '<p style=font-size:1.5vw>What device are you using to listen to the sounds in this survey (e.g., headphones, laptop speakers, etc.)?</p>', name: "audioDevice", required: false
+      prompt: '<p style="font-size:1.5vw">What device are you using to listen to the sounds in this survey (e.g., headphones, laptop speakers, etc.)?</p>', name: "audioDevice", required: false
     },
     {
-      prompt: "<p style=font-size:1.5vw>Was there any point you believe a technical error occurred during the study (i.e., a sound didn't play, something didn't show up, etc.)?</p>", name: "technicalIssues", required: false
+      prompt: "<p style="font-size:1.5vw">Was there any point you believe a technical error occurred during the study (i.e., a sound didn't play, something didn't show up, etc.)?</p>", name: "technicalIssues", required: false
     }],
     on_finish: function(data) {
     // Parse the JSON response
@@ -636,67 +636,67 @@ timeline.push({
 timeline.push({
   type: jsPsychSurveyMultiChoice,
   questions: [{
-    prompt: '<p style=font-size:1.5vw>Do you identify as a musician?</p>', name: "musicalIdentity", options: ["Yes", "No"], required: false, data: {
+    prompt: '<p style="font-size:1.5vw">Do you identify as a musician?</p>', name: "musicalIdentity", options: ["Yes", "No"], required: false, data: {
       phase: 'musicalIdentity'
     }, vertical: true
   },
     {
-      prompt: '<p style=font-size:1.5vw>If you sing or play a musical instrument, approximately how many years have you been doing so?</p>', name: "musicalExperience", options: ["I do not sing or play an instrument", "Less than 1 year", "1-2 years", "2-3 years", "3-4 years", "4-5 years", "5-10 years", "More than 10 years"], required: false, data: {
+      prompt: '<p style="font-size:1.5vw">If you sing or play a musical instrument, approximately how many years have you been doing so?</p>', name: "musicalExperience", options: ["I do not sing or play an instrument", "Less than 1 year", "1-2 years", "2-3 years", "3-4 years", "4-5 years", "5-10 years", "More than 10 years"], required: false, data: {
         phase: 'musicalExperience'
       }, vertical: true
     },
     {
-      prompt: '<p style=font-size:1.5vw>If you sing or play a musical instrument, approximately how long has it been since you have sung or played consistently?</p>', name: "timesinceMusicalExperience", options: ["I do not sing or play an instrument", "Less than 1 year", "1-2 years", "2-3 years", "3-4 years", "4-5 years", "5-10 years", "More than 10 years"], required: false, data: {
+      prompt: '<p style="font-size:1.5vw">If you sing or play a musical instrument, approximately how long has it been since you have sung or played consistently?</p>', name: "timesinceMusicalExperience", options: ["I do not sing or play an instrument", "Less than 1 year", "1-2 years", "2-3 years", "3-4 years", "4-5 years", "5-10 years", "More than 10 years"], required: false, data: {
         phase: 'timesinceMusicalExperience'
       }, vertical: true
     },
     {
-      prompt: '<p style=font-size:1.5vw>How important is music to you?</p>', name: "musicalImportance", options: ["Not at all important", "Slightly important", "Moderately important", "Very important", "Extremely important"], required: false, data: {
+      prompt: '<p style="font-size:1.5vw">How important is music to you?</p>', name: "musicalImportance", options: ["Not at all important", "Slightly important", "Moderately important", "Very important", "Extremely important"], required: false, data: {
         phase: 'musicalImportance'
       }, vertical: true
     },
     {
-      prompt: '<p style=font-size:1.5vw>How motivated are you to complete this survey accurately?</p>', name: "motivation", options: ["Not at all motivated", "Slightly motivated", "Moderately motivated", "Very motivated", "Extremely motivated"], required: false, data: {
-        phase: 'musicalmotivation'
+      prompt: '<p style="font-size:1.5vw">How motivated are you to complete this survey accurately?</p>', name: "motivation", options: ["Not at all motivated", "Slightly motivated", "Moderately motivated", "Very motivated", "Extremely motivated"], required: false, data: {
+        phase: 'musicalMotivation'
       }, vertical: true
     },
     {
-      prompt: '<p style=font-size:1.5vw>Approximately how many other surveys have you taken that involved listening to audio (e.g., sound clips, music, etc.)?</p>', name: "audioSurveyExperience", options: ["0", "1-2", "3-4", "5 or more"], required: false, data: {
+      prompt: '<p style="font-size:1.5vw">Approximately how many other surveys have you taken that involved listening to audio (e.g., sound clips, music, etc.)?</p>', name: "audioSurveyExperience", options: ["0", "1-2", "3-4", "5 or more"], required: false, data: {
         phase: 'audioSurveyExperience'
       }, vertical: true
     },
     {
-      prompt: '<p style=font-size:1.5vw>Do you have normal or corrected-to-normal hearing?</p>', name: "normalHearing", options: ["Yes", "No"], required: false, data: {
+      prompt: '<p style="font-size:1.5vw">Do you have normal or corrected-to-normal hearing?</p>', name: "normalHearing", options: ["Yes", "No"], required: false, data: {
         phase: 'normalHearing'
       }, vertical: true
     },
     {
-      prompt: '<p style=font-size:1.5vw>Do you have a history of inner ear infections/tubes?</p>', name: "earHealth1", options: ["Yes", "No"], required: false, data: {
+      prompt: '<p style="font-size:1.5vw">Do you have a history of inner ear infections/tubes?</p>', name: "earHealth1", options: ["Yes", "No"], required: false, data: {
         phase: 'earHealth1'
       }, vertical: true
     },
     {
-      prompt: '<p style=font-size:1.5vw>Do you have a history of excessive ear wax or similar conditions?</p>', name: "earHealth2", options: ["Yes", "No"], required: false, data: {
+      prompt: '<p style="font-size:1.5vw">Do you have a history of excessive ear wax or similar conditions?</p>', name: "earHealth2", options: ["Yes", "No"], required: false, data: {
         phase: 'earHealth2'
       }, vertical: true
     },
     {
-      prompt: '<p style=font-size:1.5vw>Have you been diagnosed with any kind of abnormal ear anatomy (e.g., small ear canals)?</p>', name: "earHealth3", options: ["Yes", "No"], required: false, data: {
+      prompt: '<p style="font-size:1.5vw">Have you been diagnosed with any kind of abnormal ear anatomy (e.g., small ear canals)?</p>', name: "earHealth3", options: ["Yes", "No"], required: false, data: {
         phase: 'earHealth3'
       }, vertical: true
     },
     {
-      prompt: '<p style=font-size:1.5vw>Do you use any kind of hearing aid device?</p>', name: "hearingAid", options: ["Yes", "No"], required: false, data: {
+      prompt: '<p style="font-size:1.5vw">Do you use any kind of hearing aid device?</p>', name: "hearingAid", options: ["Yes", "No"], required: false, data: {
         phase: 'hearingAid'
       }, vertical: true
     },
     {
-      prompt: '<p style=font-size:1.5vw>Do you have hearing loss in either of your ears?</p>', name: "hearingLoss", options: ["Yes - hearing loss in left ear", "Yes - hearing loss in right ear", "Yes - hearing loss in both ears", "No", "Unsure"], required: false, data: {
+      prompt: '<p style="font-size:1.5vw">Do you have hearing loss in either of your ears?</p>', name: "hearingLoss", options: ["Yes - hearing loss in left ear", "Yes - hearing loss in right ear", "Yes - hearing loss in both ears", "No", "Unsure"], required: false, data: {
         phase: 'hearingLoss'
       }, vertical: true
     },
     {
-      prompt: '<p style=font-size:1.5vw>Please indicate your hearing ability without a hearing aid:</p>', name: "hearingAbility", options: ["Deaf", "Poor", "Average", "Good", "Excellent"], required: false, data: {
+      prompt: '<p style="font-size:1.5vw">Please indicate your hearing ability without a hearing aid:</p>', name: "hearingAbility", options: ["Deaf", "Poor", "Average", "Good", "Excellent"], required: false, data: {
         phase: 'hearingAbility'
       }, vertical: true
     }],
@@ -723,7 +723,7 @@ timeline.push({
 var demographics_age = {
   type: jsPsychSurveyText,
   questions: [{
-    prompt: '<p style=font-size:1.5vw>Please enter your age in numerals (e.g., "24")</p>',
+    prompt: '<p style="font-size:1.5vw">Please enter your age in numerals (e.g., "24")</p>',
     name: 'age',
     required: false
   }],
@@ -737,7 +737,7 @@ var demographics_age = {
 var demographics_gender = {
   type: jsPsychSurveyMultiSelect,
   questions: [{
-    prompt: '<p style=font-size:1.5vw>Which of the following gender identities best describes you? Please select all that apply.</p>',
+    prompt: '<p style="font-size:1.5vw">Which of the following gender identities best describes you? Please select all that apply.</p>',
     name: 'gender',
     options: [
       "Woman",
@@ -757,7 +757,7 @@ var demographics_gender = {
 var demographics_gender_other = {
   type: jsPsychSurveyText,
   questions: [{
-    prompt: '<p style=font-size:1.5vw>If you selected "Other", please specify. If you chose another option please answer "N/A"</p>',
+    prompt: '<p style="font-size:1.5vw">If you selected "Other", please specify. If you chose another option please answer "N/A"</p>',
     name: 'gender_other',
     required: false,
     vertical: true
@@ -769,7 +769,7 @@ var demographics_gender_other = {
 var demographics_race = {
   type: jsPsychSurveyMultiChoice,
   questions: [{
-    prompt: '<p style=font-size:1.5vw>Which of the following best describes you?</p>',
+    prompt: '<p style="font-size:1.5vw">Which of the following best describes you?</p>',
     name: 'race',
     options: [
       "Asian or Pacific Islander",
@@ -794,9 +794,9 @@ timeline.push(demographics_race);
 timeline.push({
   type: jsPsychInstructions,
   pages: [
-    '<p style=font-size:1.5vw>Thank you for completing the study! Click "Continue" to move to the debriefing on the next page and receive credit for your participation.</p>',
-    '<p style=font-size:1.5vw>The researcher\'s goal is to examine the relationship between memory and prediction for music, specifically, how memory for music develops over time and how the predictability of music influences preference for a song. With the data you have provided, we will be able to see, for example, if memory for a melody and the ability to predict when a melody will be heard influences how much a person likes that melody. If you have any questions, please contact the researcher (pjohnson4@albany.edu).</p>',
-    '<p style=font-size:1.5vw>By hitting the "Continue" button on this page, you will complete the study and indication of your participation will be sent to the Sona pool so you earn credit for participating.</p>'],
+    '<p style="font-size:1.5vw">Thank you for completing the study! Click "Continue" to move to the debriefing on the next page and receive credit for your participation.</p>',
+    "<p style='font-size:1.5vw'>The researcher's goal is to examine the relationship between memory and prediction for music, specifically, how memory for music develops over time and how the predictability of music influences preference for a song. With the data you have provided, we will be able to see, for example, if memory for a melody and the ability to predict when a melody will be heard influences how much a person likes that melody. If you have any questions, please contact the researcher (pjohnson4@albany.edu).</p>",
+    '<p style="font-size:1.5vw">By hitting the "Continue" button on this page, you will complete the study and indication of your participation will be sent to the Sona pool so you earn credit for participating.</p>'],
   button_label_next: 'Continue',
   button_label_previous: 'Go back',
   show_clickable_nav: true,
