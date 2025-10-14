@@ -611,7 +611,7 @@ timeline.push({
       prompt: '<p style="font-size:1.5vw">What device are you using to listen to the sounds in this survey (e.g., headphones, laptop speakers, etc.)?</p>', name: "audioDevice", required: false
     },
     {
-      prompt: "<p style="font-size:1.5vw">Was there any point you believe a technical error occurred during the study (i.e., a sound didn't play, something didn't show up, etc.)?</p>", name: "technicalIssues", required: false
+      prompt: "<p style='font-size:1.5vw'>Was there any point you believe a technical error occurred during the study (i.e., a sound didn't play, something didn't show up, etc.)?</p>", name: "technicalIssues", required: false
     }],
     on_finish: function(data) {
      const responses = JSON.parse(data.response);
