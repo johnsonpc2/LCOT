@@ -119,7 +119,7 @@ preference_trial = {
   labels: [
     "Not at all",
     "Very much"],
-  prompt: '<p style="font-size:1.5vw">How much did you like this melody?</p>',
+  prompt: '<p style="font-size:1.5vw">How much do you like this melody?</p>',
   slider_width: 480,
   min: 0,
   max: 100,
@@ -490,7 +490,7 @@ for (var block_index = 0; block_index < num_blocks; block_index++) {
 
     timeline.push({
   type: jsPsychHtmlKeyboardResponse,
-  stimulus: '<p style="font-size:1.5vw">Thanks for listening and answering questions so far. You are about to hear more pairs and rate them in a similar manner.</p>',
+  stimulus: '<p style="font-size:1.5vw">Thanks for listening and answering questions about what you have heard so far. You are about to hear more pairs and decide which you hear more often.</p>',
   choices: 'NO_KEYS',
   trial_duration: 8000,
   response_ends_trial: false,
@@ -582,7 +582,7 @@ timeline.push({
 timeline.push({
   type: jsPsychInstructions,
   pages: [// Each new item in the list shows up on a new page
-    '<p style="font-size:3vw">Thanks for completing everything in the study so far. You are almost done!</p>',
+    '<p style="font-size:2.5vw">Thanks for completing everything in the study so far. You are almost done!</p>',
     '<p style="font-size:1.5vw">The final task in the study is a demographic questionnaire. Please answer the following questions to the best of your ability. Click "Continue" to begin.</p>'],
   button_label_next: 'Continue',
   button_label_previous: 'Go back',
