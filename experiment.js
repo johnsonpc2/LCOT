@@ -230,7 +230,7 @@ timeline.push({
 timeline.push({
   type: jsPsychInstructions,
   pages: [
-    '<p style="font-size:1.5vw">This portion of the study will take around 30 minutes. Please listen to the audio that plays, you will be asked questions about what you hear. Please press the "Continue" button to begin.</p>'],
+    '<p style="font-size:1.5vw">This portion of the study will take around 30 minutes. You will hear a stream of melodies. Some of these melodies may repeat and you may notice patterns in the stream of audio. Please pay careful attention because you will be asked questions about what you hear. Please press the "Continue" button to begin.</p>'],
   button_label_next: 'Continue',
   button_label_previous: 'Go back',
   show_clickable_nav: true,
@@ -284,7 +284,7 @@ for (var block_index = 0; block_index < num_blocks; block_index++) {
   timeline.push({
     type: jsPsychInstructions,
     pages: [
-      '<p style="font-size:1.5vw">You are about to hear the melodies you just listened to again. Some melodies <b>might</b> be in the same order you heard previously, but some may be different. Please rate your confidence regarding whether the sequences we play now <b>match the SPECIFIC order</b> you heard earlier. Following these questions, you will listen to more melodies. Click "Continue" to start.</p>'
+      '<p style="font-size:1.5vw"> We will play you two pairs of melodies; you may have heard one pair more often than the other during the listening task from a moment ago. Please rate your confidence regarding which of the two pairs you heard more often during the listening task. Following these questions, you will listen to more melodies. Click "Continue" to start.</p>'
     ],
     button_label_next: 'Continue',
     button_label_previous: 'Go back',
