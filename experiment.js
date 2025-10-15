@@ -102,9 +102,9 @@ var task_stimuli = [{
 
 // Define blocks in listening task—each a new order of "study_units"
 /* Each listening + test block takes 8 minutes:
-  listening: 5 sec/melody, 2 melodies/pair, 24 pair presentations;
-  test: 5sec/melody, 2 melodies/pair, 2 pairs/test trial, 10 test trials, + 4 sec/response, 10 responses,
-  4 blocks puts us at 32 minutes of listening*/
+  listening: 5 sec/melody, 2 melodies/pair, 24 pair presentations; 4 min total
+  test: 5 sec/melody, 2 melodies/pair, 2 pairs/test trial, 10 test trials, + 4 sec/response, 10 responses; 4 min total
+  4 blocks puts us at 32 minutes of listening and test*/
 const num_blocks = 4;
 
 // Create an empty list to hold the entire exposure stream.
@@ -112,7 +112,6 @@ var exposure_stream = [];
 
 // ##### SLIDE DEFINITIONS #####
 // Trial of the preference task
-
 preference_trial = {
   type: jsPsychAudioSliderResponse,
   stimulus: jsPsych.timelineVariable('preference_stim'),
@@ -125,13 +124,12 @@ preference_trial = {
   max: 100,
   slider_start: 50,
   response_allowed_while_playing: false,
-  post_trial_gap: 1000,
+  post_trial_gap: 500,
   require_movement: true,
   data: {
     phase: 'preference_test_trial',
     component_id: jsPsych.timelineVariable('component_id')
   }};
-
 
 // ##### TIMELINE CODE #####
 const timeline = []; // Creates empty array to fill with procedure
@@ -143,7 +141,7 @@ timeline.push(pavlovia_init)
 timeline.push({
   type: jsPsychFullscreen,
   fullscreen_mode: true,
-  message: '<p style="font-size:1.5vw">Click the "Continue" button to enter fullscreen mode. Please remain in fullscreen mode for the duration of the study. Click the "Continue" button to read the informed consent and begin the study.</p>',
+  message: '<p style="font-size:1.5vw">Click the "Continue" button to enter fullscreen mode and remain in fullscreen mode for the duration of the study. On the next page you will read the informed consent and begin the study.</p>',
   data: {
     phase: 'fullscreen_agreement'
   }
@@ -173,15 +171,15 @@ timeline.push({
 // General task instructions
 timeline.push({
   type: jsPsychInstructions,
-  pages: [// Each new item in the list shows up on a new page
+  pages: [
     '<p style="font-size:4vw">Welcome!</p><br><br><p style="font-size:1.5vw">Thanks for reading and agreeing to the consent form. In this study you will complete two tasks: First, you will complete a series of short listening tasks and answer questions about what you hear. After completing the listening tasks, you will complete a questionnaire about yourself and your hearing. The study takes about 40-45 minutes to complete. All responses will remain anonymous.</p>',
-    '<p style="font-size:1.5vw">This study requires you to listen to audio played from your browser and make responses with your keyboard. Please complete the study on a device with a <b>physical</b> keyboard, such as a laptop or desktop computer. Please also ensure you are in a quiet environment. If possible, use headphones or earbuds to complete the task. On the next page you will hear sample sounds like those you will hear later in the study. Lower your volume now <b>before</b> continuing, and gradually increase your volume to a comfortable level while the sample audio plays. When you are ready, press the "Continue" button to move to the next page.</p>'],
+    '<p style="font-size:1.5vw">You will be required to listen to audio played from your browser and make responses with your keyboard. Please complete the study on a device with a <b>physical</b> keyboard, such as a laptop or desktop computer. Please also ensure you are in a quiet environment. If possible, use headphones or earbuds to complete the task. On the next page you will hear sample melodies like those you will hear later in the study. Lower your volume now <b>before</b> continuing, and gradually increase your volume to a comfortable level while the sample audio plays. When you are ready, press the "Continue" button to move to the next page.</p>'],
   button_label_next: 'Continue',
   button_label_previous: 'Go back',
   show_clickable_nav: true,
   data: {
     phase: 'intro_instructions'
-  } // Record extra data about the slide.
+  }
 });
 
 // Preload audio files from above to play later without lag
@@ -199,7 +197,7 @@ timeline.push({
     type: jsPsychAudioButtonResponse,
     stimulus: sample_tone_file,
     choices: ['Play again', 'Continue'], // Option 1 and 2
-    prompt: '<p style="font-size:1.5vw">Adjust the volume so the sample can be heard comfortably. Click the "Play Again" button to repeat the sample. Once comfortable, click "Continue" to begin.</p>'
+    prompt: '<p style="font-size:1.5vw">Adjust the volume so the audio can be heard comfortably. Click the "Play Again" button to repeat the sample. Once comfortable, click "Continue" to begin the listening task.</p>'
   }],
   response_allowed_while_playing: false,
   loop_function: function(data) {
@@ -232,7 +230,7 @@ timeline.push({
 timeline.push({
   type: jsPsychInstructions,
   pages: [
-    '<p style="font-size:1.5vw">This portion of the study will take around 25 minutes. You will hear melodies and be asked questions about what you hear. Please press the "Continue" button to begin.</p>'],
+    '<p style="font-size:1.5vw">This portion of the study will take around 30 minutes. Please listen to the audio that plays, you will be asked questions about what you hear. Please press the "Continue" button to begin.</p>'],
   button_label_next: 'Continue',
   button_label_previous: 'Go back',
   show_clickable_nav: true,
