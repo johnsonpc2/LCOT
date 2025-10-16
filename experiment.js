@@ -594,23 +594,12 @@ timeline.push({
 timeline.push({
   type: jsPsychSurveyText,
   questions: [{
-    prompt: '<p style="font-size:1.5vw">What strategies did you use to decide which of the melodies you were more confident you heard earlier in the experiment?</p>', name: "DecisionStrategies", required: false
-  },
-    {
-      prompt: '<p style="font-size:1.5vw">Do you sing or play a musical instrument? Type "yes" or "no" to respond.</p>', name: "singOrPlay", required: false
-    },
-    {
-      prompt: '<p style="font-size:1.5vw">If you sing or play a musical instrument, please specify your instrument or voice type (e.g., piano, guitar, soprano, etc.). If you do not, type "N/A".</p>', name: "InstrumentType", required: false
-    },
-    {
-      prompt: '<p style="font-size:1.5vw">What device are you using to take this survey (e.g., phone, laptop, etc.)?</p>', name: "surveyDevice", required: false
-    },
-    {
-      prompt: '<p style="font-size:1.5vw">What device are you using to listen to the sounds in this survey (e.g., headphones, laptop speakers, etc.)?</p>', name: "audioDevice", required: false
-    },
-    {
-      prompt: "<p style='font-size:1.5vw'>Was there any point you believe a technical error occurred during the study (i.e., a sound didn't play, something didn't show up, etc.)?</p>", name: "technicalIssues", required: false
-    }],
+    {prompt: '<p style="font-size:1.5vw">What strategies did you use to decide which of the melodies you were more confident you heard earlier in the experiment?</p>', name: "DecisionStrategies", required: false},
+    {prompt: '<p style="font-size:1.5vw">Do you sing or play a musical instrument? Type "yes" or "no" to respond.</p>', name: "singOrPlay", required: false},
+    {prompt: '<p style="font-size:1.5vw">If you sing or play a musical instrument, please specify your instrument or voice type (e.g., piano, guitar, soprano, etc.). If you do not, type "N/A".</p>', name: "InstrumentType", required: false},
+    {prompt: '<p style="font-size:1.5vw">What device are you using to take this survey (e.g., phone, laptop, etc.)?</p>', name: "surveyDevice", required: false},
+    {prompt: '<p style="font-size:1.5vw">What device are you using to listen to the sounds in this survey (e.g., headphones, laptop speakers, etc.)?</p>', name: "audioDevice", required: false},
+    {prompt: "<p style='font-size:1.5vw'>Was there any point you believe a technical error occurred during the study (i.e., a sound didn't play, something didn't show up, etc.)?</p>", name: "technicalIssues", required: false}],
   data: {
     phase: 'individual_diffs_text1'
   }});
