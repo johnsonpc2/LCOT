@@ -104,8 +104,8 @@ var task_stimuli = [{
 /* Each listening + test block takes 8 minutes:
   listening: 5 sec/melody, 2 melodies/pair, 24 pair presentations; 4 min total
   test: 5 sec/melody, 2 melodies/pair, 2 pairs/test trial, 10 test trials, + 4 sec/response, 10 responses; 4 min total
-  4 blocks puts us at 32 minutes of listening and test*/
-const num_blocks = 4;
+  3 blocks puts us at 24 minutes of listening and test*/
+const num_blocks = 3;
 
 // Create an empty list to hold the entire exposure stream.
 var exposure_stream = [];
@@ -594,107 +594,165 @@ timeline.push({
 timeline.push({
   type: jsPsychSurveyText,
   questions: [{
-    {prompt: '<p style="font-size:1.5vw">What strategies did you use to decide which of the melodies you were more confident you heard earlier in the experiment?</p>', name: "DecisionStrategies", required: false},
-    {prompt: '<p style="font-size:1.5vw">Do you sing or play a musical instrument? Type "yes" or "no" to respond.</p>', name: "singOrPlay", required: false},
-    {prompt: '<p style="font-size:1.5vw">If you sing or play a musical instrument, please specify your instrument or voice type (e.g., piano, guitar, soprano, etc.). If you do not, type "N/A".</p>', name: "InstrumentType", required: false},
-    {prompt: '<p style="font-size:1.5vw">What device are you using to take this survey (e.g., phone, laptop, etc.)?</p>', name: "surveyDevice", required: false},
-    {prompt: '<p style="font-size:1.5vw">What device are you using to listen to the sounds in this survey (e.g., headphones, laptop speakers, etc.)?</p>', name: "audioDevice", required: false},
-    {prompt: "<p style='font-size:1.5vw'>Was there any point you believe a technical error occurred during the study (i.e., a sound didn't play, something didn't show up, etc.)?</p>", name: "technicalIssues", required: false}],
-  data: {
-    phase: 'individual_diffs_text1'
-  }});
+    prompt: '<p style="font-size:1.5vw">What strategies did you use to decide which of the melodies you were more confident you heard earlier in the experiment?</p>',
+    name: "DecisionStrategies",
+    required: false
+    },
+    {
+      prompt: '<p style="font-size:1.5vw">Do you sing or play a musical instrument? Type "yes" or "no" to respond.</p>',
+      name: "singOrPlay",
+      required: false
+      },
+      {
+        prompt: '<p style="font-size:1.5vw">If you sing or play a musical instrument, please specify your instrument or voice type (e.g., piano, guitar, soprano, etc.). If you do not, type "N/A".</p>',
+        name: "InstrumentType",
+        required: false
+        },
+        {
+          prompt: '<p style="font-size:1.5vw">What device are you using to take this survey (e.g., phone, laptop, etc.)?</p>',
+          name: "surveyDevice",
+          required: false
+          },
+          {
+            prompt: '<p style="font-size:1.5vw">What device are you using to listen to the sounds in this survey (e.g., headphones, laptop speakers, etc.)?</p>',
+            name: "audioDevice",
+            required: false
+            },
+            {
+              prompt: "<p style='font-size:1.5vw'>Was there any point you believe a technical error occurred during the study (i.e., a sound didn't play, something didn't show up, etc.)?</p>",
+              name: "technicalIssues",
+              required: false
+              }],
+              data: {phase: 'individual_diffs_text1'}
+              });
 
 // Individual differences questionnaire multiple choice
 timeline.push({
   type: jsPsychSurveyMultiChoice,
   questions: [{
-    prompt: '<p style="font-size:1.5vw">Do you identify as a musician?</p>', name: "musicalIdentity", options: ["Yes", "No"], required: false, data: {
-      phase: 'musicalIdentity'
-    }, vertical: true
+    prompt: '<p style="font-size:1.5vw">Do you identify as a musician?</p>',
+    name: "musicalIdentity",
+    options: ["Yes", "No"],
+    required: false,
+    data: {phase: 'musicalIdentity'},
+    vertical: true
   },
-    {
-      prompt: '<p style="font-size:1.5vw">If you sing or play a musical instrument, approximately how many years have you been doing so?</p>', name: "musicalExperience", options: ["I do not sing or play an instrument", "Less than 1 year", "1-2 years", "2-3 years", "3-4 years", "4-5 years", "5-10 years", "More than 10 years"], required: false, data: {
-        phase: 'musicalExperience'
-      }, vertical: true
+  {
+    prompt: '<p style="font-size:1.5vw">If you sing or play a musical instrument, approximately how many years have you been doing so?</p>',
+    name: "musicalExperience",
+    options: ["I do not sing or play an instrument", "Less than 1 year", "1-2 years", "2-3 years", "3-4 years", "4-5 years", "5-10 years", "More than 10 years"],
+    required: false,
+    data: {phase: 'musicalExperience'},
+    vertical: true
     },
     {
-      prompt: '<p style="font-size:1.5vw">If you sing or play a musical instrument, approximately how long has it been since you have sung or played consistently?</p>', name: "timesinceMusicalExperience", options: ["I do not sing or play an instrument", "Less than 1 year", "1-2 years", "2-3 years", "3-4 years", "4-5 years", "5-10 years", "More than 10 years"], required: false, data: {
-        phase: 'timesinceMusicalExperience'
-      }, vertical: true
-    },
-    {
-      prompt: '<p style="font-size:1.5vw">How important is music to you?</p>', name: "musicalImportance", options: ["Not at all important", "Slightly important", "Moderately important", "Very important", "Extremely important"], required: false, data: {
-        phase: 'musicalImportance'
-      }, vertical: true
-    },
-    {
-      prompt: '<p style="font-size:1.5vw">How motivated are you to complete this survey accurately?</p>', name: "motivation", options: ["Not at all motivated", "Slightly motivated", "Moderately motivated", "Very motivated", "Extremely motivated"], required: false, data: {
-        phase: 'musicalMotivation'
-      }, vertical: true
-    },
-    {
-      prompt: '<p style="font-size:1.5vw">Approximately how many other surveys have you taken that involved listening to audio (e.g., sound clips, music, etc.)?</p>', name: "audioSurveyExperience", options: ["0", "1-2", "3-4", "5 or more"], required: false, data: {
-        phase: 'audioSurveyExperience'
-      }, vertical: true
-    },
-    {
-      prompt: '<p style="font-size:1.5vw">Do you have normal or corrected-to-normal hearing?</p>', name: "normalHearing", options: ["Yes", "No"], required: false, data: {
-        phase: 'normalHearing'
-      }, vertical: true
-    },
-    {
-      prompt: '<p style="font-size:1.5vw">Do you have a history of inner ear infections/tubes?</p>', name: "earHealth1", options: ["Yes", "No"], required: false, data: {
-        phase: 'earHealth1'
-      }, vertical: true
-    },
-    {
-      prompt: '<p style="font-size:1.5vw">Do you have a history of excessive ear wax or similar conditions?</p>', name: "earHealth2", options: ["Yes", "No"], required: false, data: {
-        phase: 'earHealth2'
-      }, vertical: true
-    },
-    {
-      prompt: '<p style="font-size:1.5vw">Have you been diagnosed with any kind of abnormal ear anatomy (e.g., small ear canals)?</p>', name: "earHealth3", options: ["Yes", "No"], required: false, data: {
-        phase: 'earHealth3'
-      }, vertical: true
-    },
-    {
-      prompt: '<p style="font-size:1.5vw">Do you use any kind of hearing aid device?</p>', name: "hearingAid", options: ["Yes", "No"], required: false, data: {
-        phase: 'hearingAid'
-      }, vertical: true
-    },
-    {
-      prompt: '<p style="font-size:1.5vw">Do you have hearing loss in either of your ears?</p>', name: "hearingLoss", options: ["Yes - hearing loss in left ear", "Yes - hearing loss in right ear", "Yes - hearing loss in both ears", "No", "Unsure"], required: false, data: {
-        phase: 'hearingLoss'
-      }, vertical: true
-    },
-    {
-      prompt: '<p style="font-size:1.5vw">Please indicate your hearing ability without a hearing aid:</p>', name: "hearingAbility", options: ["Deaf", "Poor", "Average", "Good", "Excellent"], required: false, data: {
-        phase: 'hearingAbility'
-      }, vertical: true
-    }],
-    ,
-    on_finish: function(data) {
-     const responses = JSON.parse(data.response);
-     
-     data.musicalIdentity = responses.musicalIdentity;
-     data.musicalExperience = responses.musicalExperience;
-     data.timesinceMusicalExperience = responses.timesinceMusicalExperience;
-     data.musicalImportance = responses.musicalImportance;
-     data.motivation = responses.musicalMotivation;
-     data.audioSurveyExperience = responses.audioSurveyExperience;
-     data.normalHearing = responses.normalHearing;
-     data.earHealth1 = responses.earHealth1;
-     data.earHealth2 = responses.earHealth2;
-     data.earHealth3 = responses.earHealth3;
-     data.hearingAid = responses.hearingAid;
-     data.hearingLoss = responses.hearingLoss;
-     data.hearingAbility = responses.hearingAbility;
-     
-     delete data.response;
-   },
-  data: {
-    phase: 'individual_diffs_multipleChoice'
-  }});
+      prompt: '<p style="font-size:1.5vw">If you sing or play a musical instrument, approximately how long has it been since you have sung or played consistently?</p>',
+      name: "timesinceMusicalExperience",
+      options: ["I do not sing or play an instrument", "Less than 1 year", "1-2 years", "2-3 years", "3-4 years", "4-5 years", "5-10 years", "More than 10 years"],
+      required: false,
+      data: {phase: 'timesinceMusicalExperience'},
+      vertical: true
+      },
+      {
+        prompt: '<p style="font-size:1.5vw">How important is music to you?</p>',
+        name: "musicalImportance",
+        options: ["Not at all important", "Slightly important", "Moderately important", "Very important", "Extremely important"],
+        required: false,
+        data: {phase: 'musicalImportance'},
+        vertical: true
+        },
+        {
+          prompt: '<p style="font-size:1.5vw">How motivated are you to complete this survey accurately?</p>',
+          name: "motivation",
+          options: ["Not at all motivated", "Slightly motivated", "Moderately motivated", "Very motivated", "Extremely motivated"],
+          required: false,
+          data: {phase: 'musicalMotivation'},
+          vertical: true
+          },
+          {
+            prompt: '<p style="font-size:1.5vw">Approximately how many other surveys have you taken that involved listening to audio (e.g., sound clips, music, etc.)?</p>',
+            name: "audioSurveyExperience",
+            options: ["0", "1-2", "3-4", "5 or more"],
+            required: false,
+            data: {phase: 'audioSurveyExperience'},
+            vertical: true
+            },
+            {
+              prompt: '<p style="font-size:1.5vw">Do you have normal or corrected-to-normal hearing?</p>',
+              name: "normalHearing",
+              options: ["Yes", "No"],
+              required: false,
+              data: {phase: 'normalHearing'},
+              vertical: true
+              },
+              {
+                prompt: '<p style="font-size:1.5vw">Do you have a history of inner ear infections/tubes?</p>',
+                name: "earHealth1",
+                options: ["Yes", "No"],
+                required: false,
+                data: {phase: 'earHealth1'},
+                vertical: true
+                },
+                {
+                  prompt: '<p style="font-size:1.5vw">Do you have a history of excessive ear wax or similar conditions?</p>',
+                  name: "earHealth2",
+                  options: ["Yes", "No"],
+                  required: false,
+                  data: {phase: 'earHealth2'},
+                  vertical: true
+                  },
+                  {
+                    prompt: '<p style="font-size:1.5vw">Have you been diagnosed with any kind of abnormal ear anatomy (e.g., small ear canals)?</p>',
+                    name: "earHealth3",
+                    options: ["Yes", "No"],
+                    required: false,
+                    data: {phase: 'earHealth3'},
+                    vertical: true
+                    },
+                    {
+                      prompt: '<p style="font-size:1.5vw">Do you use any kind of hearing aid device?</p>',
+                      name: "hearingAid",
+                      options: ["Yes", "No"],
+                      required: false,
+                      data: {phase: 'hearingAid'},
+                      vertical: true
+                      },
+                      {
+                        prompt: '<p style="font-size:1.5vw">Do you have hearing loss in either of your ears?</p>',
+                        name: "hearingLoss",
+                        options: ["Yes - hearing loss in left ear", "Yes - hearing loss in right ear", "Yes - hearing loss in both ears", "No", "Unsure"],
+                        required: false, data: {phase: 'hearingLoss'},
+                        vertical: true
+                        },
+                        {
+                          prompt: '<p style="font-size:1.5vw">Please indicate your hearing ability without a hearing aid:</p>',
+                          name: "hearingAbility",
+                          options: ["Deaf", "Poor", "Average", "Good", "Excellent"],
+                          required: false,
+                          data: {phase: 'hearingAbility'},
+                          vertical: true
+                          }],
+                          on_finish: function(data) {
+                            const responses = JSON.parse(data.response);
+                            
+                            data.musicalIdentity = responses.musicalIdentity;
+                            data.musicalExperience = responses.musicalExperience;
+                            data.timesinceMusicalExperience = responses.timesinceMusicalExperience;
+                            data.musicalImportance = responses.musicalImportance;
+                            data.motivation = responses.musicalMotivation;
+                            data.audioSurveyExperience = responses.audioSurveyExperience;
+                            data.normalHearing = responses.normalHearing;
+                            data.earHealth1 = responses.earHealth1;
+                            data.earHealth2 = responses.earHealth2;
+                            data.earHealth3 = responses.earHealth3;
+                            data.hearingAid = responses.hearingAid;
+                            data.hearingLoss = responses.hearingLoss;
+                            data.hearingAbility = responses.hearingAbility;
+                            
+                            delete data.response;
+                            },
+                            data: {phase: 'individual_diffs_multipleChoice'}
+                            });
 
 // Demographics survey: a block for entering age, gender, and race
 var demographics_age = {
