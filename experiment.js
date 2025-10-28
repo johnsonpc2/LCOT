@@ -9,14 +9,18 @@ const pavlovia_finish = {
   on_finish: function (){
                   document.body.innerHTML = '<p> Please wait. You will be redirected back to Sona in a few moments. If you get a pop-up warning you "data may not be saved", you can click "Leave", your data have already been saved.</p>';
                   setTimeout(function () {
-                    location.href = "https://albany.sona-systems.com/webstudy_credit.aspx?experiment_id=1766&credit_token=e13a3e84a962438da11fbfe4ee0a3587&survey_code=+ expInfo['participant']";
-                    document.body.innerHTML ='<p>If you are not automatically redirected, please click here: <a href="https://albany.sona-systems.com/webstudy_credit.aspx?experiment_id=1766&credit_token=e13a3e84a962438da11fbfe4ee0a3587&survey_code=+ expInfo["participant"]">Link to Sona</a></p> <p>If you get a pop-up warning you "data may not be saved", you can click "leave", your data have already been saved.</p>';
+                    location.href = location.href = "https://albany.sona-systems.com/webstudy_credit.aspx?experiment_id=1766&credit_token=e13a3e84a962438da11fbfe4ee0a3587&survey_code=" + expInfo['participant'];
+                    document.body.innerHTML =document.body.innerHTML ='<p>If you are not automatically redirected, please click here: <a href="https://albany.sona-systems.com/webstudy_credit.aspx?experiment_id=1766&credit_token=e13a3e84a962438da11fbfe4ee0a3587&survey_code=' + expInfo["participant"] + '">Link to Sona</a></p> <p>If you get a pop-up warning you "data may not be saved", you can click "leave", your data have already been saved.</p>';
                     },
                     5000);
                     }
                     };
 
 const jsPsych = initJsPsych({
+});
+
+jsPsych.data.addProperties({
+  sona_id: expInfo['participant'] // Pavlovia's participant field
 });
 
 // ##### DEFINE THE CONSTANTS AND VARIABLES USED LATER #####
