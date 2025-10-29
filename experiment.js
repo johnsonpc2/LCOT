@@ -128,7 +128,7 @@ var exposure_stream = [];
 
 // ##### SLIDE DEFINITIONS #####
 // Trial of the preference task
-preference_trial = {
+var preference_trial = {
   type: jsPsychAudioSliderResponse,
   stimulus: jsPsych.timelineVariable('preference_stim'),
   labels: [
@@ -213,9 +213,9 @@ timeline.push({
     type: jsPsychAudioButtonResponse,
     stimulus: sample_tone_file,
     choices: ['Play again', 'Continue'], // Option 1 and 2
-    prompt: '<p style="font-size:1.5vw">Adjust the volume so the audio can be heard comfortably. Click the "Play Again" button to repeat the sample. Once comfortable, click "Continue" to begin the listening task.</p>'
+    prompt: '<p style="font-size:1.5vw">Adjust the volume so the audio can be heard comfortably. Click the "Play Again" button to repeat the sample. Once comfortable, click "Continue" to begin the listening task.</p>',
+    response_allowed_while_playing: false
   }],
-  response_allowed_while_playing: false,
   loop_function: function(data) {
     if (data.values()[0].response == 0) {
       return true; // Loop if the first option on the page is selected!
@@ -679,7 +679,7 @@ timeline.push({
         },
         {
           prompt: '<p style="font-size:1.5vw">How motivated are you to complete this survey accurately?</p>',
-          name: "motivation",
+          name: "musicalMotivation",
           options: ["Not at all motivated", "Slightly motivated", "Moderately motivated", "Very motivated", "Extremely motivated"],
           required: false,
           data: {phase: 'musicalMotivation'},
@@ -798,8 +798,7 @@ var demographics_gender = {
       "Non-binary/gender non-conforming",
       "Other",
       "Prefer not to say"],
-    required: false,
-    vertical: true
+    required: false
   }],
   data: {
     phase: 'demographics_gender'
