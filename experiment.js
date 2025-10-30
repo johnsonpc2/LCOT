@@ -700,7 +700,7 @@ timeline.push({
     data.musicalExperience = responses.musicalExperience;
     data.timesinceMusicalExperience = responses.timesinceMusicalExperience;
     data.musicalImportance = responses.musicalImportance;
-    data.motivation = responses.musicalMotivation;
+    data.musicalMotivation = responses.musicalMotivation;
     data.audioSurveyExperience = responses.audioSurveyExperience;
     data.normalHearing = responses.normalHearing;
     data.earHealth1 = responses.earHealth1;
