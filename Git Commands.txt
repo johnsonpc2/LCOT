@@ -1,0 +1,27 @@
+Workflow
+
+1. Ensure you're in the correct directory
+cd "C:\Users\johns\OneDrive\Desktop\20241013_official+files_pdoc\Employment\Research\LCOT\contingency-learning-in-a-music-prediction-task"
+
+2. Pull from the online GitLab repository so local files are up to date
+git pull origin main
+
+3. Add local files that will be updated in the online repository
+git add . 
+
+4. Commit local changes to the online repository
+git commit -m "message"
+
+5. Push local changes to GitHub and GitLab
+git push origin master    # Push to GitLab
+git push github master    # Push to GitHub
+
+MISC
+	- Search for local files that match specific criteria:
+		find . -type f -name "*.csv" -size -1k
+	- Search for and delete local files with specific characteristics:
+		find . -type f -name "*.csv" -size -1k -exec git rm {} \;
+	- Get the status of the current staged files:
+		git status
+	- Unstage all deletions and restore deleted files:
+		git reset --hard HEAD
