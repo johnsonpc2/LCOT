@@ -1,7 +1,0 @@
-"trial_type","trial_index","plugin_version","time_elapsed","phase","success","rt","view_history","timeout","failed_images","failed_audio","failed_video","stimulus","response"
-"pavlovia","0","null","997","","","","","","","","","",""
-"fullscreen","1","2.1.0","6018","fullscreen_agreement","true","4018","","","","","","",""
-"instructions","2","2.1.0","47049","informed_consent","","41029","[{""page_index"":0,""viewing_time"":6029},{""page_index"":1,""viewing_time"":3919},{""page_index"":2,""viewing_time"":3034},{""page_index"":3,""viewing_time"":1797},{""page_index"":4,""viewing_time"":2433},{""page_index"":5,""viewing_time"":20485},{""page_index"":6,""viewing_time"":916},{""page_index"":7,""viewing_time"":1468},{""page_index"":8,""viewing_time"":948}]","","","","","",""
-"instructions","3","2.1.0","54616","intro_instructions","","7566","[{""page_index"":0,""viewing_time"":6101},{""page_index"":1,""viewing_time"":1465}]","","","","","",""
-"preload","4","2.1.0","54744","audio_preload","true","","","false","[]","[]","[]","",""
-"audio-button-response","5","2.1.0","62251","volume_adjust","","7477","","","","","","[""audio/melody21_Kalimba_loud.mp3""]","0"

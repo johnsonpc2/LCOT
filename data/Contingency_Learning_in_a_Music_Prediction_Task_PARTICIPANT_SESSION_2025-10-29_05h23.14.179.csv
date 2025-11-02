@@ -1,8 +1,0 @@
-"trial_type","trial_index","plugin_version","time_elapsed","sona_id","phase","success","rt","view_history","timeout","failed_images","failed_audio","failed_video","stimulus","response"
-"pavlovia","0","null","1213","74472","","","","","","","","","",""
-"fullscreen","1","2.1.0","7449","74472","fullscreen_agreement","true","5232","","","","","","",""
-"instructions","2","2.1.0","45862","74472","informed_consent","","38412","[{""page_index"":0,""viewing_time"":7063},{""page_index"":1,""viewing_time"":24983},{""page_index"":2,""viewing_time"":934},{""page_index"":3,""viewing_time"":1499},{""page_index"":4,""viewing_time"":683},{""page_index"":5,""viewing_time"":500},{""page_index"":6,""viewing_time"":650},{""page_index"":7,""viewing_time"":1433},{""page_index"":8,""viewing_time"":667}]","","","","","",""
-"instructions","3","2.1.0","47348","74472","intro_instructions","","1484","[{""page_index"":0,""viewing_time"":800},{""page_index"":1,""viewing_time"":683}]","","","","","",""
-"preload","4","2.1.0","47450","74472","audio_preload","true","","","false","[]","[]","[]","",""
-"audio-button-response","5","2.1.0","53599","74472","volume_adjust","","5957","","","","","","[""audio/melody21_Kalimba_loud.mp3""]","1"
-"html-keyboard-response","6","2.1.0","56567","74472","intermediate_slide_exposure","","null","","","","","","<p style=""font-size:4vw"">LISTENING TASK</p>","null"
