@@ -50,9 +50,7 @@ You can add options to executable code like this
 #| message: false
 #| warning: false
 
-files_info(
-  path = paste0(wd, "/LCOT/contingency-learning-in-a-music-prediction-task/data")
-) -> files
+files_info(path = paste0(wd, "/LCOT/data")) -> files
 
 
 sapply(
@@ -84,14 +82,18 @@ dt_sub[(phase == "memory_trial_pair_1" |
          default = NA
          )
          ][, `:=`(
+           rt = as.numeric(rt) / 1000,
            avg_confidence = mean(confidence, na.rm = TRUE),
            p_value = t.test(
              x = confidence,
              mu = 0.5,
-             alternative = "greater")$p.value
+             alternative = "greater")$p.value,
+           avg_rt = mean(as.numeric(rt)) / 1000
            ), by = sona_id
-           ][p_value < 0.05 & avg_confidence > 0.50, 
+           ][avg_rt < 20, 
              ] -> dt_results
+
+# Exclusion criteria for chance performance: (p_value < 0.05 & avg_confidence > 0.50 )
 
 length(table(dt_results$sona_id)) -> n_subjects_retained
 
