@@ -80,7 +80,7 @@ dt_sub[(phase == "memory_trial_pair_1" |
          # Compute the average RT of each subject
          avg_rt = mean(rt, na.rm = TRUE)
        ), by = sona_id
-       ][avg_rt < 20,
+       ][p_value < 0.05,
        ] -> dt_results
 
 # Finally, count the number of subjects retained after exclusion
