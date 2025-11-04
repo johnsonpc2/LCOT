@@ -1,0 +1,6 @@
+"trial_type","trial_index","plugin_version","time_elapsed","sona_id","phase","success","rt","view_history","timeout","failed_images","failed_audio","failed_video"
+"pavlovia","0","null","938","77994","","","","","","","",""
+"fullscreen","1","2.1.0","3804","77994","fullscreen_agreement","true","1858","","","","",""
+"instructions","2","2.1.0","148137","77994","informed_consent","","144332","[{""page_index"":0,""viewing_time"":1842},{""page_index"":1,""viewing_time"":137708},{""page_index"":2,""viewing_time"":565},{""page_index"":3,""viewing_time"":633},{""page_index"":4,""viewing_time"":799},{""page_index"":5,""viewing_time"":432},{""page_index"":6,""viewing_time"":1053},{""page_index"":7,""viewing_time"":700},{""page_index"":8,""viewing_time"":600}]","","","",""
+"instructions","3","2.1.0","149351","77994","intro_instructions","","1209","[{""page_index"":0,""viewing_time"":642},{""page_index"":1,""viewing_time"":567}]","","","",""
+"preload","4","2.1.0","149499","77994","audio_preload","true","","","false","[]","[]","[]"
