@@ -7,7 +7,7 @@ editor_options:
   chunk_output_type: console
 ---
 
-#  Setup
+# Setup
 
 First I setup my environment and save information about my data files. I'll also
 load in my data and save it into a single data.table.
