@@ -24,8 +24,8 @@ graphics.off()
 rm(list = ls(all.names = TRUE))
 
 # Load packages
-c("beepr", "data.table", "ggplot2",
-  "ggdist", "here", "pcjtools") |>
+c("beepr", "data.table", "emmeans", "ggplot2",
+  "ggdist", "here", "lme4", "lmerTest", "pcjtools") |>
   purrr::map(.f = library, character.only = T) |>
   invisible()
 
@@ -192,4 +192,70 @@ ggplot(
     y = "Confidence",
     x = "Test Point"
   )
+```
+
+```{r}
+# Calculate difference from 50% baseline for each subject and block
+dt_results[, .(
+  confidence = mean(confidence, na.rm = TRUE)
+), by = .(sona_id, block, contingency)
+][, baseline_50 := confidence[contingency == "50"], 
+  by = .(sona_id, block)
+][, confidence_diff := confidence - baseline_50
+] -> dt_diff
+
+# Now plot the differences
+ggplot(
+  data = dt_diff[contingency != "50"],
+  mapping = aes(
+    x = factor(block),
+    y = confidence_diff,
+    fill = factor(contingency, labels = c("100%", "75%")),
+    group = contingency
+  )
+) +
+  stat_halfeye(point_interval = "mean_qi",
+               fill_type = "segments", alpha = 0.5) +
+  stat_summary(
+    fun = mean,
+    geom = "line",
+    alpha = 0.6,
+    linewidth = 1
+  ) +
+  facet_wrap(facets = "contingency") +
+  geom_hline(
+    yintercept = 0,  # Changed to 0 since we're plotting differences
+    linetype = "dashed",
+    color = "red",
+    alpha = .4,
+    lwd = 1.5
+  ) +
+  theme(
+    panel.border = element_rect(
+      color = "black",
+      fill = NA,
+      linewidth = 2),
+    panel.background = element_rect(
+      fill = "white"
+    ),
+    strip.background = element_blank(),
+    strip.text = element_blank(),
+    legend.position = "top",
+    legend.direction = "horizontal"
+  ) +
+  labs(
+    fill = "Contingency:",
+    y = "Confidence (Difference from 50% Baseline)",
+    x = "Test Point"
+  )
+```
+
+```{r}
+#| label: Significance Test in the Difference from 50
+
+# Mixed model with random intercept for subject
+lmm <- lmer(confidence_diff ~ contingency * block + (1|sona_id), 
+            data = dt_diff[contingency != "50"])
+anova(lmm)
+summary(lmm)
 ```
