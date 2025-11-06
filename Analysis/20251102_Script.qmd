@@ -80,7 +80,7 @@ dt_sub[(phase == "memory_trial_pair_1" |
          # Compute the average RT of each subject
          avg_rt = mean(rt, na.rm = TRUE)
        ), by = sona_id
-       ][p_value < 0.05,
+       ][avg_rt < 30 & avg_confidence > 0.5,
        ] -> dt_results
 
 # Finally, count the number of subjects retained after exclusion
@@ -91,7 +91,8 @@ Initially, we've collected data from `r as.character(n_subjects_initial)`
 subjects. After exclusions, we retain data from
 `r as.character(n_subjects_retained)` participants
 (`r as.character(round((n_subjects_retained / n_subjects_initial) * 100), 2)`%)
-who had average response times \< 20 seconds.
+who had average response times \< 30 seconds and had an average confidence in
+their ratings \> 0.5.
 
 Now plot the average confidence rating for each contingency condition across the
 three learning and test blocks:

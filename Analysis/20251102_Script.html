@@ -172,13 +172,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>         <span class="co"># Compute the average RT of each subject</span></span>
 <span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>         <span class="at">avg_rt =</span> <span class="fu">mean</span>(rt, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>       ), by <span class="ot">=</span> sona_id</span>
-<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>       ][avg_rt <span class="sc">&lt;</span> <span class="dv">20</span>,</span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>       ][avg_rt <span class="sc">&lt;</span> <span class="dv">30</span> <span class="sc">&amp;</span> avg_confidence <span class="sc">&gt;</span> <span class="fl">0.5</span>,</span>
 <span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a>       ] <span class="ot">-&gt;</span> dt_results</span>
 <span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a><span class="co"># Finally, count the number of subjects retained after exclusion</span></span>
 <span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">table</span>(dt_results<span class="sc">$</span>sona_id)) <span class="ot">-&gt;</span> n_subjects_retained</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Initially, we’ve collected data from 46 subjects. After exclusions, we retain data from 35 participants (76%) who had average response times &lt; 20 seconds.</p>
+<p>Initially, we’ve collected data from 79 subjects. After exclusions, we retain data from 29 participants (37%) who had average response times &lt; 30 seconds and had an average confidence in their ratings &gt; 0.5.</p>
 <p>Now plot the average confidence rating for each contingency condition across the three learning and test blocks:</p>
 <div class="cell">
 <div class="cell-output-display">
