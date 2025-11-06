@@ -9,8 +9,8 @@ editor_options:
 
 # Setup
 
-First I setup my environment and save information about my data files. I'll also
-load in my data and save it into a single data.table.
+First I setup the environment and save information about my data files. I'll
+also load in data and save it into a single data.table.
 
 ```{r}
 #| label: Setup and Data Processing
@@ -25,7 +25,7 @@ rm(list = ls(all.names = TRUE))
 
 # Load packages
 c("beepr", "data.table", "ggplot2",
-  "ggridges", "here", "pcjtools") |>
+  "ggdist", "here", "pcjtools") |>
   purrr::map(.f = library, character.only = T) |>
   invisible()
 
@@ -68,20 +68,20 @@ dt_sub[(phase == "memory_trial_pair_1" |
            intact_first == FALSE,
            (as.numeric(response)) / 100,
            default = NA
+         ),
+         contingency = factor(
+           contingency,
+           levels = c("100", "75", "50")
+           )
          )
-       )
        ][, `:=`(
          # Compute the average confidence
          avg_confidence = mean(confidence, na.rm = TRUE),
-         # And conduct a t-test to find out if that subject had confidence statistically different from chance
-         p_value = t.test(
-           x = confidence,
-           mu = 0.5,
-           alternative = "greater")$p.value,
          # Compute the average RT of each subject
-         avg_rt = mean(rt, na.rm = TRUE)
-       ), by = sona_id
-       ][avg_rt < 30 & avg_confidence > 0.5,
+         avg_rt = mean(rt, na.rm = TRUE),
+         med_rt = median(rt, na.rm = TRUE)
+       ), by = list(sona_id, block)
+       ][(med_rt < 15 & avg_rt < 15) & avg_confidence > 0.5,
        ] -> dt_results
 
 # Finally, count the number of subjects retained after exclusion
@@ -92,8 +92,8 @@ Initially, we've collected data from `r as.character(n_subjects_initial)`
 subjects. After exclusions, we retain data from
 `r as.character(n_subjects_retained)` participants
 (`r as.character(round((n_subjects_retained / n_subjects_initial) * 100), 2)`%)
-who had average response times \< 30 seconds and had an average confidence in
-their ratings \> 0.5.
+who had med response times \< 10 seconds, mean RTs under 17 seconds, and had an
+average confidence in their ratings \> 0.5.
 
 Now plot the average confidence rating for each contingency condition across the
 three learning and test blocks:
@@ -152,24 +152,44 @@ print(learning_by_block)
 ggplot(
   data = dt_results,
   mapping = aes(
-    x = confidence,
-    y = factor(contingency),
-    fill = factor(block)
+    x = factor(block),
+    y = confidence,
+    fill = factor(contingency, labels = c("100%", "75%", "50%")),
+    group = contingency
   )
 ) +
-  geom_density_ridges(
-    alpha = 0.4
+  stat_halfeye(point_interval = "mean_qi",
+               fill_type = "segments", alpha = 0.5) +
+  stat_summary(
+    fun = mean,
+    geom = "line",
+    alpha = 0.6,
+    linewidth = 1
   ) +
-  geom_vline(
-    xintercept = 0.5,
+  facet_wrap(facets = "contingency") +
+  geom_hline(
+    yintercept = 0.5,
     linetype = "dashed",
     color = "red",
-    alpha = .6
-    ) +
+    alpha = .4,
+    lwd = 1.5
+  ) +
+  theme(
+    panel.border = element_rect(
+      color = "black",
+      fill = NA,
+      linewidth = 2),
+    panel.background = element_rect(
+      fill = "white"
+    ),
+    strip.background = element_blank(),
+    strip.text = element_blank(),
+    legend.position = "top",
+    legend.direction = "horizontal"
+  ) +
   labs(
-    x = "Confidence",
-    y = "Contingency",
-    fill = "Block",
-    title = "Distribution of Confidence Scores by Subject and Block"
+    fill = "Contingency:",
+    y = "Confidence",
+    x = "Test Point"
   )
 ```
