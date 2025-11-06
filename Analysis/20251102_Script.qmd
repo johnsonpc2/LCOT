@@ -24,7 +24,8 @@ graphics.off()
 rm(list = ls(all.names = TRUE))
 
 # Load packages
-c("beepr", "data.table", "ggplot2", "here", "pcjtools") |>
+c("beepr", "data.table", "ggplot2",
+  "ggridges", "here", "pcjtools") |>
   purrr::map(.f = library, character.only = T) |>
   invisible()
 
@@ -98,6 +99,7 @@ Now plot the average confidence rating for each contingency condition across the
 three learning and test blocks:
 
 ```{r}
+#| label: Confidence Over Time
 #| echo: false
 #| message: false
 #| warning: false
@@ -143,4 +145,31 @@ ggplot(
     ) -> learning_by_block
 
 print(learning_by_block)
+```
+
+```{r}
+# Ridge plot of confidence by subject, colored by block
+ggplot(
+  data = dt_results,
+  mapping = aes(
+    x = confidence,
+    y = factor(contingency),
+    fill = factor(block)
+  )
+) +
+  geom_density_ridges(
+    alpha = 0.4
+  ) +
+  geom_vline(
+    xintercept = 0.5,
+    linetype = "dashed",
+    color = "red",
+    alpha = .6
+    ) +
+  labs(
+    x = "Confidence",
+    y = "Contingency",
+    fill = "Block",
+    title = "Distribution of Confidence Scores by Subject and Block"
+  )
 ```
