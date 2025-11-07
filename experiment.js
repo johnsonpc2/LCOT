@@ -270,13 +270,15 @@ for (var block_index = 0; block_index < num_blocks; block_index++) {
 
       const visual_indicator = component_index == 0 ? '&#128997' : '&#128998';
 
+      var correct_response = "j";
+
       if (unit_index > 0) {
 
-        const correct_response = block_units[unit_index - 1][component_index] == block_units[unit_index][component_index] ? "f" : "j";
+        correct_response = block_units[unit_index - 1][component_index] == block_units[unit_index][component_index] ? "f" : "j";
 
       } else {
 
-        const correct_response = "j";
+        correct_response = "j";
         
       };
 
