@@ -268,9 +268,23 @@ for (var block_index = 0; block_index < num_blocks; block_index++) {
     // Because each "unit" can have multiple components, we must loop through each component within the current unit.
     for (var component_index = 0; component_index < block_units[unit_index].length; component_index++) {
 
+      const visual_indicator = component_index == 0 ? '&#128997' : '&#128998';
+
+      if (unit_index > 0) {
+
+        const correct_response = block_units[unit_index - 1][component_index] == block_units[unit_index][component_index] ? "f" : "j";
+
+      } else {
+
+        const correct_response = "j";
+        
+      };
+
       exposure_block.push({
         component_id: block_units[unit_index][component_index],
         stimulus: assigned_files[block_units[unit_index][component_index]] + '_loud.mp3',
+        visual_indicator: visual_indicator,
+        correct_response: correct_response,
         block: block_index
       });
     }
@@ -280,14 +294,16 @@ for (var block_index = 0; block_index < num_blocks; block_index++) {
   var trial_1 = {
       type: jsPsychAudioKeyboardResponse,
       stimulus: jsPsych.timelineVariable("stimulus"),
-      response_allowed_while_playing: false,
+      response_allowed_while_playing: true,
       response_ends_trial: false,
       trial_ends_after_audio: true,
-      prompt: "<p style=font-size:1.3vw>Sound is playing...</p>",
+      choices: ["f", "j"],
+      prompt: "<p style=font-size:1.3vw>" + jsPsych.timelineVariable("visual_indicator") + "</p>" + "<p style=font-size:1.3vw>Press 'F' if same, 'J' if different</p>",
       data: {
         component_id: jsPsych.timelineVariable("component_id"),
         block: jsPsych.timelineVariable("block"),
-        phase: "exposure_stream_trial"
+        phase: "exposure_stream_trial",
+        correct_response:jsPsych.timelineVariable("correct_response")
       }
   };
 
