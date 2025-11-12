@@ -86,6 +86,8 @@ dt_sub[(phase == "memory_trial_pair_1" |
 
 # Finally, count the number of subjects retained after exclusion
 length(table(dt_results$sona_id)) -> n_subjects_retained
+
+dt_results$sona_id[] -> retained_subjects
 ```
 
 Initially, we've collected data from `r as.character(n_subjects_initial)`
@@ -258,4 +260,14 @@ lmm <- lmer(confidence_diff ~ contingency * block + (1|sona_id),
             data = dt_diff[contingency != "50"])
 anova(lmm)
 summary(lmm)
+```
+
+# Qualitative Analysis
+
+```{r}
+qual_cols <- c("sona_id", "phase", "stimulus", "response")
+
+dt[, ..qual_cols] -> dt_demo_sub
+
+dt[sona_id == unique(retained_subjects), ] -> dt_demo_sub
 ```
